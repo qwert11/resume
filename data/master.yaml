@@ -1,0 +1,38 @@
+profile:
+  name: "Юрий"
+  slug: "resume"
+  title_options:
+    full: "Full Career"
+    dotnet: ".NET / ASP.NET Developer"
+    delphi: "Delphi Developer"
+    web: "Software Engineer"
+  location: "Дніпро, Україна"
+  work_modes:
+    - remote
+    - hybrid
+    - office
+  contacts:
+    github: "https://github.com/qwert11"
+    website: "https://qwert11.github.io/resume"
+    linkedin: ""
+  summary:
+    full: >
+      Разработчик корпоративного ПО с сильным опытом в Delphi и .NET, а также более широкой
+      карьерной историей в инженерных, производственных и торговых ролях. Сильная база в
+      enterprise-системах, SQL, автоматизации, интеграциях и модернизации legacy-решений.
+    dotnet: >
+      .NET / ASP.NET разработчик с опытом внутренних веб-систем, доступа и аутентификации,
+      real-time уведомлений, интеграций, audit-сценариев, SQL и enterprise backend-разработки.
+    delphi: >
+      Delphi-разработчик с опытом сопровождения и развития корпоративных desktop-систем,
+      Firebird, FastReport, VCL-компонентов, синхронизации БД и модернизации legacy-кода.
+    web: >
+      Software Engineer с опытом enterprise web и desktop-систем, retail и industrial доменов,
+      сильной SQL-базой, интеграциями и переходом от legacy-архитектур к более современным решениям.
+  languages:
+    - name: "Українська"
+      level: "fluent"
+    - name: "Русский"
+      level: "native"
+    - name: "English"
+      level: "technical reading"

@@ -1,0 +1,23 @@
+id: "dotnet"
+title: ".NET / ASP.NET Developer"
+route: "dotnet"
+summary_key: "dotnet"
+include_tags:
+  - dotnet
+  - web
+  - backend
+  - enterprise
+  - integration
+  - reporting
+  - authentication
+  - authorization
+  - access-management
+  - signalr
+  - sql
+highlight_tags:
+  - dotnet
+  - web
+  - backend
+  - authentication
+  - authorization
+  - access-management

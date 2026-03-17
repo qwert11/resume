@@ -1,0 +1,13 @@
+id: "full"
+title: "Full Career"
+route: ""
+summary_key: "full"
+include_tags:
+  - full
+highlight_tags:
+  - enterprise
+  - retail
+  - industrial
+  - warehouse
+  - integration
+  - architecture

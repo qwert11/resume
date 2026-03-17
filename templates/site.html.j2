@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}</title>
+  <link rel="stylesheet" href="{{ assets_prefix }}assets/css/site.css">
+</head>
+<body>
+  <script>
+    window.RESUME_CONFIG = {
+      routeBase: "{{ route_base }}",
+      currentTarget: "{{ target.id }}"
+    };
+  </script>
+  <script src="{{ assets_prefix }}assets/js/theme.js"></script>
+
+  <header class="site-header">
+    <div class="container topbar">
+      <div class="brand">
+        <div class="eyebrow">{{ target.title }}</div>
+        <h1>{{ profile.name }}</h1>
+        <p class="lead">{{ summary }}</p>
+      </div>
+
+      <div class="header-actions">
+        <div class="theme-switch">
+          <button data-theme-mode="auto">Auto</button>
+          <button data-theme-mode="light">Light</button>
+          <button data-theme-mode="dark">Dark</button>
+        </div>
+
+        <div class="downloads">
+          <a class="btn primary" href="{{ downloads_prefix }}resume.pdf">PDF</a>
+          <a class="btn" href="{{ downloads_prefix }}resume.docx">Word</a>
+          <a class="btn" href="{{ downloads_prefix }}resume.md">Markdown</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="profile-nav container">
+    <a href="{{ root_prefix }}index.html" class="{% if target.id == 'full' %}active{% endif %}">Full</a>
+    <a href="{{ root_prefix }}dotnet/index.html" class="{% if target.id == 'dotnet' %}active{% endif %}">.NET</a>
+    <a href="{{ root_prefix }}delphi/index.html" class="{% if target.id == 'delphi' %}active{% endif %}">Delphi</a>
+    <a href="{{ root_prefix }}web/index.html" class="{% if target.id == 'web' %}active{% endif %}">Web</a>
+  </nav>
+
+  <main class="container main-grid">
+    <section class="card wide hero-card">
+      <h2>Ключевой стек</h2>
+      <div class="chips">
+        {% for item in highlight_skills %}
+        <span>{{ item }}</span>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Сильные стороны</h2>
+      <ul class="clean">
+        {% for item in achievements %}
+        <li>{{ item.text }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Образование</h2>
+      <ul class="clean">
+        {% for e in education %}
+        <li><strong>{{ e.specialty }}</strong><br>{{ e.institution }} • {{ e.period }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="card wide">
+      <h2>Проекты</h2>
+      <div class="project-grid">
+        {% for p in projects %}
+        <article class="project">
+          <h3>{{ p.name }}</h3>
+          <div class="muted">{{ p.period }} • {{ p.role }}</div>
+          <p>{{ p.description }}</p>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>Опыт</h2>
+      {% for item in experiences %}
+      <article class="job">
+        <div class="job-head">
+          <div>
+            <h3>{{ item.company }}</h3>
+            <div class="muted">{{ item.title }} • {{ item.city }}</div>
+          </div>
+          <div class="period">{{ item.start }} – {{ item.end }}</div>
+        </div>
+        <ul class="clean">
+          {% for bullet in item.bullets %}
+          <li>{{ bullet }}</li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </section>
+  </main>
+</body>
+</html>

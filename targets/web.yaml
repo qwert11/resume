@@ -1,0 +1,22 @@
+id: "web"
+title: "Software Engineer"
+route: "web"
+summary_key: "web"
+include_tags:
+  - dotnet
+  - delphi
+  - web
+  - backend
+  - enterprise
+  - integration
+  - reporting
+  - architecture
+  - sql
+  - warehouse
+highlight_tags:
+  - enterprise
+  - web
+  - backend
+  - architecture
+  - sql
+  - integration

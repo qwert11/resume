@@ -1,0 +1,14 @@
+- text: "Система управления доступом и аутентификацией для 2000+ пользователей."
+  tags: [dotnet, authentication, authorization, access-management, enterprise]
+
+- text: "Миграция и модернизация legacy Delphi 6 системы к Delphi 12/13."
+  tags: [delphi, legacy, modernization, architecture]
+
+- text: "Архитектура и разработка платформы SMS-уведомлений через GSM API и SMPP."
+  tags: [dotnet, integration, messaging, architecture]
+
+- text: "Внутренние web-системы для retail, audit и warehouse-процессов."
+  tags: [dotnet, retail, reporting, warehouse, enterprise]
+
+- text: "Синхронизация БД Firebird и production-critical industrial systems."
+  tags: [delphi, firebird, industrial, database]

@@ -1,0 +1,97 @@
+languages:
+  - name: "C#"
+    tags: [dotnet, web, backend]
+  - name: "Delphi / Object Pascal"
+    tags: [delphi, desktop, enterprise]
+  - name: "JavaScript"
+    tags: [web, frontend-lite]
+  - name: "SQL"
+    tags: [sql, database]
+  - name: "Java"
+    tags: [web, java]
+  - name: "PHP"
+    tags: [web, php]
+  - name: "C++"
+    tags: [teaching]
+
+frameworks:
+  - name: "ASP.NET MVC"
+    tags: [dotnet, web, backend]
+  - name: "ASP.NET Core"
+    tags: [dotnet, web, backend]
+  - name: "Web API"
+    tags: [dotnet, web, backend]
+  - name: "SignalR"
+    tags: [dotnet, web, realtime]
+  - name: "WCF"
+    tags: [dotnet, integration]
+  - name: "Entity Framework"
+    tags: [dotnet, orm]
+  - name: "OAuth2"
+    tags: [authentication, authorization]
+  - name: "ADFS"
+    tags: [authentication, authorization]
+  - name: "xUnit"
+    tags: [testing]
+  - name: "NSubstitute"
+    tags: [testing]
+  - name: "Kendo UI"
+    tags: [web]
+  - name: "WordPress"
+    tags: [web, php, ecommerce]
+  - name: "WooCommerce"
+    tags: [web, ecommerce]
+  - name: "OpenCart"
+    tags: [web, ecommerce]
+
+databases:
+  - name: "MS SQL"
+    tags: [sql, database]
+  - name: "Firebird"
+    tags: [sql, database, delphi]
+  - name: "Oracle"
+    tags: [sql, database, enterprise]
+  - name: "MySQL"
+    tags: [sql, database]
+  - name: "PostgreSQL"
+    tags: [sql, database]
+
+tools:
+  - name: "IIS"
+    tags: [web]
+  - name: "Swagger"
+    tags: [api]
+  - name: "Postman"
+    tags: [api]
+  - name: "Git"
+    tags: [vcs]
+  - name: "SVN"
+    tags: [vcs]
+  - name: "Bitbucket"
+    tags: [vcs]
+  - name: "FastReport"
+    tags: [delphi, reporting]
+  - name: "DevExpress"
+    tags: [delphi, desktop]
+  - name: "RxLib"
+    tags: [delphi]
+  - name: "JasperReports"
+    tags: [java, reporting]
+
+architecture:
+  - name: "Legacy modernization"
+    tags: [legacy, modernization, architecture]
+  - name: "Modular monolith"
+    tags: [architecture, modernization]
+  - name: "Three-tier architecture"
+    tags: [architecture]
+  - name: "ORM"
+    tags: [architecture, orm]
+  - name: "GoF patterns"
+    tags: [architecture]
+  - name: "Authentication systems"
+    tags: [authentication, authorization, architecture]
+  - name: "Enterprise integrations"
+    tags: [integration, architecture]
+  - name: "Database synchronization"
+    tags: [architecture, database]

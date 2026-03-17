@@ -1,0 +1,21 @@
+id: "delphi"
+title: "Delphi Developer"
+route: "delphi"
+summary_key: "delphi"
+include_tags:
+  - delphi
+  - desktop
+  - firebird
+  - enterprise
+  - warehouse
+  - legacy
+  - modernization
+  - reporting
+  - industrial
+highlight_tags:
+  - delphi
+  - desktop
+  - legacy
+  - modernization
+  - firebird
+  - reporting

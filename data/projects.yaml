@@ -1,0 +1,118 @@
+- id: warehouse_modernization
+  name: "Перевод старого клиентского приложения РЦ складского учета"
+  period: "2024-now"
+  role: "Developer / modernizer"
+  description: "Миграция legacy-приложения Delphi 6 к Delphi 12/13 с переработкой ядра и архитектуры."
+  tags:
+    - full
+    - delphi
+    - desktop
+    - warehouse
+    - legacy
+    - modernization
+    - architecture
+
+- id: recyclables
+  name: "Вторсырье"
+  period: "2023-2025"
+  role: "Developer"
+  description: "ASP.NET MVC / Core web-проект с интеграцией в M.E.Doc и retail-инфраструктуру."
+  tags:
+    - full
+    - dotnet
+    - web
+    - backend
+    - integration
+    - retail
+
+- id: store_journals
+  name: "Журналы магазина"
+  period: "2022-2023"
+  role: "Developer"
+  description: "Внутренняя audit/reporting-платформа для retail-процессов."
+  tags:
+    - full
+    - dotnet
+    - web
+    - backend
+    - reporting
+    - audit
+    - retail
+
+- id: uam
+  name: "UAM / User Access Manager"
+  period: "2020-2022"
+  role: "Developer"
+  description: "Система управления доступом и аутентификацией для 2000+ пользователей."
+  tags:
+    - full
+    - dotnet
+    - web
+    - backend
+    - authentication
+    - authorization
+    - access-management
+    - enterprise
+
+- id: sms_messenger
+  name: "SMS Messenger"
+  period: "2020-2021"
+  role: "Architect / Developer"
+  description: "Платформа уведомлений: отправка SMS через GSM API и SMPP."
+  tags:
+    - full
+    - dotnet
+    - web
+    - backend
+    - integration
+    - messaging
+    - architecture
+
+- id: password_change
+  name: "Смена паролей магазина"
+  period: "2019-2020"
+  role: "Developer"
+  description: "Внутренний ASP.NET MVC проект, MSSQL, SignalR, паттерны GoF."
+  tags:
+    - full
+    - dotnet
+    - web
+    - backend
+    - signalr
+    - sql
+    - retail
+
+- id: warehouse_client
+  name: "Клиентская часть АС складского учета"
+  period: "2016-2019"
+  role: "Developer / support"
+  description: "Сопровождение и развитие Delphi-клиента складского учета."
+  tags:
+    - full
+    - delphi
+    - desktop
+    - warehouse
+    - retail
+    - enterprise
+
+- id: motorshow
+  name: "Автосалон / автоматизированная система"
+  period: "2015-2016"
+  role: "Developer"
+  description: "Java + Firebird решение для малого бизнеса."
+  tags:
+    - full
+    - web
+    - java
+    - smb
+
+- id: ecommerce_wordpress
+  name: "Интернет-магазины и плагин WordPress"
+  period: "2015-2016"
+  role: "Developer"
+  description: "Настройка e-commerce решений и разработка плагина WordPress."
+  tags:
+    - full
+    - web
+    - php
+    - ecommerce

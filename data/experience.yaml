@@ -1,0 +1,214 @@
+- id: atb_retail_it
+  company: "АТБ / АТБ-МАРКЕТ / АТБ ЕНЕРГО"
+  title: "Ведущий программист прикладной / ASP.NET MVC разработчик"
+  start: "2016-06"
+  end: "2024-03"
+  city: "Дніпро"
+  tags:
+    - full
+    - delphi
+    - dotnet
+    - web
+    - backend
+    - retail
+    - enterprise
+    - internal-systems
+    - warehouse
+    - authentication
+    - authorization
+    - access-management
+    - reporting
+    - integration
+    - signalr
+    - sql
+    - legacy
+    - modernization
+    - architecture
+  stack:
+    - "Delphi 6"
+    - "Delphi 12/13"
+    - "C#"
+    - "ASP.NET MVC"
+    - "ASP.NET Core"
+    - "REST API"
+    - "SignalR"
+    - "WCF"
+    - "Entity Framework"
+    - "MS SQL"
+    - "PostgreSQL"
+    - "Oracle"
+    - "Firebird"
+    - "OAuth2"
+    - "ADFS"
+    - "IIS"
+    - "xUnit"
+    - "NSubstitute"
+    - "Swagger"
+    - "Kendo UI"
+  bullets:
+    - "Сопровождение клиентской части системы складского учёта на Delphi 6."
+    - "С 2018 года параллельно разработка внутренних ASP.NET MVC решений."
+    - "Вёл проекты: UAM, Журналы магазина, Вторсырьё, смена паролей магазина."
+    - "Модернизация Delphi legacy-приложения: переход от Delphi 6 к Delphi 12/13."
+    - "Работа с доступом, аутентификацией, аудитом, real-time уведомлениями и интеграциями."
+  achievements:
+    - "Система доступа и аутентификации для 2000+ пользователей."
+    - "Переход legacy-системы к более модульной архитектуре."
+    - "Внутренние web-системы для retail и складской инфраструктуры."
+
+- id: sms_messenger
+  company: "АТБ / внутренний проект"
+  title: "Архитектор / разработчик SMS messenger"
+  start: "2020-01"
+  end: "2021-01"
+  city: "Дніпро"
+  tags:
+    - full
+    - dotnet
+    - web
+    - backend
+    - enterprise
+    - integration
+    - messaging
+    - architecture
+    - sql
+  stack:
+    - "ASP.NET MVC"
+    - "Web API"
+    - "MS SQL"
+    - "GSM API"
+    - "SMPP"
+  bullets:
+    - "Разработка приложения и его архитектуры для отправки SMS."
+    - "Интеграция через GSM API Inteleb и SMPP."
+    - "Веб-архитектура на .NET MVC / Web API."
+  achievements:
+    - "Проектирование собственной архитектуры уведомлений."
+
+- id: freelance_dev
+  company: "Фриланс / частная практика"
+  title: "Фриланс-разработчик"
+  start: "2015-07"
+  end: "2016-07"
+  city: "Кривий Ріг"
+  tags:
+    - full
+    - web
+    - java
+    - php
+    - ecommerce
+    - freelance
+  stack:
+    - "Java"
+    - "Firebird"
+    - "Swing"
+    - "JasperReports"
+    - "PHP"
+    - "WordPress"
+    - "WooCommerce"
+    - "OpenCart"
+    - "JavaScript"
+    - "jQuery"
+  bullets:
+    - "Разработка автоматизированной системы автосалона."
+    - "Настройка интернет-магазинов на WordPress/WooCommerce и OpenCart."
+    - "Создание собственного плагина WordPress."
+
+- id: teaching_courses
+  company: "Курсы современных профессий / частная практика"
+  title: "Преподаватель программирования"
+  start: "2015-01"
+  end: "2016-01"
+  city: "Кривий Ріг"
+  tags:
+    - full
+    - teaching
+    - mentoring
+  stack:
+    - "C++"
+    - "Java"
+    - "PHP"
+    - "SQL"
+    - "MySQL"
+    - "MSSQL"
+    - "Firebird"
+  bullets:
+    - "Обучение начинающих ООП, Java Core, Hibernate и SQL."
+    - "Подготовка и публикация учебных материалов."
+
+- id: kjrk_engineer_programmer
+  company: "Криворожский Железорудный Комбинат"
+  title: "Инженер-программист"
+  start: "2013-06"
+  end: "2016-06"
+  city: "Кривий Ріг"
+  tags:
+    - full
+    - delphi
+    - desktop
+    - enterprise
+    - industrial
+    - mining
+    - firebird
+    - sql
+    - reporting
+    - synchronization
+  stack:
+    - "Delphi 7"
+    - "Delphi XE4"
+    - "Firebird"
+    - "SQL"
+    - "PSQL"
+    - "FastReport"
+    - "TXLSExport"
+    - "Indy"
+    - "RxLib"
+    - "XML"
+  bullets:
+    - "Разработка и сопровождение ПО для добычи и отгрузки руды."
+    - "Автоматизация сменной выдачи расходных материалов."
+    - "Поддержка систем подготовки производства и бюджетных процессов."
+    - "Синхронизация таблиц Firebird."
+  achievements:
+    - "Разработка нескольких production-critical систем для промышленного предприятия."
+
+- id: ossystems
+  company: "ОССистем"
+  title: "Программист"
+  start: "2012-11"
+  end: "2013-04"
+  city: "Одеса"
+  tags:
+    - full
+    - delphi
+    - enterprise
+    - oracle
+    - orm
+    - architecture
+    - reporting
+    - logistics
+    - insurance
+  stack:
+    - "Delphi Script"
+    - "Oracle"
+    - "ORM"
+    - "XL Report"
+  bullets:
+    - "Разработка для страховой компании на Master INSURANCE."
+    - "Работа с трёхзвенной архитектурой и ORM на Oracle."
+    - "Сопровождение системы учёта автотранспорта и контейнеров."
+
+- id: non_it_history
+  company: "Дополнительная не-IT карьера"
+  title: "Инженерные, торговые и производственные роли"
+  start: "1998-01"
+  end: "2012-10"
+  city: "Кривий Ріг"
+  tags:
+    - full
+    - history
+  stack: []
+  bullets:
+    - "Горный инженер подземных разработок."
+    - "Работа в торговле и производственных ролях."
+    - "Дополнительный жизненный и управленческий опыт вне IT."
