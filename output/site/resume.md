@@ -1,179 +1,60 @@
-# Юрий
-**Full Career**
+# Yurii Zaika
 
-Разработчик корпоративного ПО с сильным опытом в Delphi и .NET, а также более широкой карьерной историей в инженерных, производственных и торговых ролях. Сильная база в enterprise-системах, SQL, автоматизации, интеграциях и модернизации legacy-решений.
+**Lead Software Engineer · .NET & Delphi** · xetr11@gmail.com · t.me/xetr_11 · github.com/qwert11 · Dnipro, Ukraine · remote or hybrid
 
+Ten years inside the core systems of one retail network: a Delphi trading platform that stores run on daily, and ASP.NET Core services that keep taking over its functions. Access control for 2,000+ users, fiscal and EDI integrations, and an ongoing Delphi 6 to Delphi 12 client migration.
 
-## Key skills
+10 years — in production retail systems, 2016 to now · 2 000+ — users on the access system I built · 33 — internal systems of the network carry my code · 15 500 lines — of Python in the speech pipeline: 55 modules, STT and diarization
 
+## Stack
 
-## Achievements
-
-- Система управления доступом и аутентификацией для 2000+ пользователей.
-
-- Миграция и модернизация legacy Delphi 6 системы к Delphi 12/13.
-
-- Архитектура и разработка платформы SMS-уведомлений через GSM API и SMPP.
-
-- Внутренние web-системы для retail, audit и warehouse-процессов.
-
-- Синхронизация БД Firebird и production-critical industrial systems.
-
-
-## Projects
-
-### Перевод старого клиентского приложения РЦ складского учета (2024-now)
-**Role:** Developer / modernizer
-
-Миграция legacy-приложения Delphi 6 к Delphi 12/13 с переработкой ядра и архитектуры.
-
-
-### Вторсырье (2023-2025)
-**Role:** Developer
-
-ASP.NET MVC / Core web-проект с интеграцией в M.E.Doc и retail-инфраструктуру.
-
-
-### Журналы магазина (2022-2023)
-**Role:** Developer
-
-Внутренняя audit/reporting-платформа для retail-процессов.
-
-
-### UAM / User Access Manager (2020-2022)
-**Role:** Developer
-
-Система управления доступом и аутентификацией для 2000+ пользователей.
-
-
-### SMS Messenger (2020-2021)
-**Role:** Architect / Developer
-
-Платформа уведомлений: отправка SMS через GSM API и SMPP.
-
-
-### Смена паролей магазина (2019-2020)
-**Role:** Developer
-
-Внутренний ASP.NET MVC проект, MSSQL, SignalR, паттерны GoF.
-
-
-### Клиентская часть АС складского учета (2016-2019)
-**Role:** Developer / support
-
-Сопровождение и развитие Delphi-клиента складского учета.
-
-
-### Автосалон / автоматизированная система (2015-2016)
-**Role:** Developer
-
-Java + Firebird решение для малого бизнеса.
-
-
-### Интернет-магазины и плагин WordPress (2015-2016)
-**Role:** Developer
-
-Настройка e-commerce решений и разработка плагина WordPress.
-
-
+- **Backend:** C#, .NET 7 / 6 / 5, .NET Core 3.1, ASP.NET Core, ASP.NET MVC, Web API / REST, SignalR
+- **Data:** MS SQL Server, T-SQL, EF Core 7, ADO.NET, Oracle, PostgreSQL, Firebird
+- **Python:** Python 3.11, FastAPI, SQLAlchemy 2, Alembic, Pydantic, Typer CLI, Playwright
+- **Speech and ML:** faster-whisper (CUDA), pyannote.audio, VAD, Speaker diarization, Quality evaluation: RTF, latency, Streaming audio pipelines, WASAPI / sounddevice
+- **Front end:** Angular 13, TypeScript, Kendo UI for Angular, Telerik UI for ASP.NET Core, Razor / MVC views, JavaScript, HTML / CSS
 
 ## Experience
 
-### АТБ / АТБ-МАРКЕТ / АТБ ЕНЕРГО | Ведущий программист прикладной / ASP.NET MVC разработчик
-2016-06 - 2024-03
+### AI / Python and Full Stack Developer — Freelance and personal projects
+2026-03 — present · Dnipro · remote
 
+- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python.
+- And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions.
+- A real-estate parser in Python: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright and selectolax, a Typer CLI, pytest and ruff.
 
-- Сопровождение клиентской части системы складского учёта на Delphi 6.
+### Lead Application Programmer — ATB-Market
+2016-06 — present · Dnipro
 
-- С 2018 года параллельно разработка внутренних ASP.NET MVC решений.
+- Own the client side of the network's trading system: 955 units, 828 forms, MS SQL, covering supply documents, pricing and fiscal invoices.
+- Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code.
+- UAM: access management for 2,000+ users on OpenID Connect, ADFS and Kerberos.
 
-- Вёл проекты: UAM, Журналы магазина, Вторсырьё, смена паролей магазина.
+### Engineer Programmer — Kryvyi Rih Iron Ore Combine
+2013-06 — 2016-06 · Kryvyi Rih
 
-- Модернизация Delphi legacy-приложения: переход от Delphi 6 к Delphi 12/13.
+- A system for ore extraction and shipment accounting, developed and maintained in production.
+- Automated per-shift distribution of consumables and hazard-pay meals.
+- Maintained production-preparation and budgeting systems; implemented Firebird table synchronization.
 
-- Работа с доступом, аутентификацией, аудитом, real-time уведомлениями и интеграциями.
+Freelance and private practice (2015–2016) · Modern Professions Courses (2015–2016) · OSSystem (2012–2013)
 
+## Key projects
 
+- **Real-time speech pipeline (ORK)** (2026) — Real-time speech recognition from calls: parallel microphone and system-audio capture, VAD-based segmentation, faster-whisper on GPU, pyannote diarization with incremental clustering, translation. `Python 3.11` `faster-whisper` `pyannote.audio` `CUDA` `FastAPI` `NumPy` `WASAPI`
+- **Trading client migration: Delphi 6 to Delphi 12** (2024 — 2026) — Moving the trading system client (955 units, 828 forms) to a modern compiler with a core redesign. `Delphi 12/13` `Object Pascal` `VCL` `MS SQL` `DevExpress` `FastReport`
+- **UAM — access management** (2020 — 2022) — Centralized permissions and authentication for 2,000+ people in the network: roles and access requests, Active Directory integration, sign-in through OpenID Connect, ADFS and Kerberos. `ASP.NET Core` `C#` `EF Core` `MS SQL` `OIDC` `ADFS` `Angular`
 
-### АТБ / внутренний проект | Архитектор / разработчик SMS messenger
-2020-01 - 2021-01
+## Education and certificates
 
+- Computer Engineering · computer systems and networks — Zaporizhzhia Institute of Economics and Information Technologies (2008 — 2011)
+- Mining Engineer, underground development — Kryvyi Rih Technical University (1998 — 2003)
+- Angular 9 — Luxoft (2021)
+- Programming in Delphi — Institute of Modern Professions (2006)
 
-- Разработка приложения и его архитектуры для отправки SMS.
+## Languages
 
-- Интеграция через GSM API Inteleb и SMPP.
+- Ukrainian — native
+- English — technical documentation and written communication; spoken at basic level
 
-- Веб-архитектура на .NET MVC / Web API.
-
-
-
-### Фриланс / частная практика | Фриланс-разработчик
-2015-07 - 2016-07
-
-
-- Разработка автоматизированной системы автосалона.
-
-- Настройка интернет-магазинов на WordPress/WooCommerce и OpenCart.
-
-- Создание собственного плагина WordPress.
-
-
-
-### Курсы современных профессий / частная практика | Преподаватель программирования
-2015-01 - 2016-01
-
-
-- Обучение начинающих ООП, Java Core, Hibernate и SQL.
-
-- Подготовка и публикация учебных материалов.
-
-
-
-### Криворожский Железорудный Комбинат | Инженер-программист
-2013-06 - 2016-06
-
-
-- Разработка и сопровождение ПО для добычи и отгрузки руды.
-
-- Автоматизация сменной выдачи расходных материалов.
-
-- Поддержка систем подготовки производства и бюджетных процессов.
-
-- Синхронизация таблиц Firebird.
-
-
-
-### ОССистем | Программист
-2012-11 - 2013-04
-
-
-- Разработка для страховой компании на Master INSURANCE.
-
-- Работа с трёхзвенной архитектурой и ORM на Oracle.
-
-- Сопровождение системы учёта автотранспорта и контейнеров.
-
-
-
-### Дополнительная не-IT карьера | Инженерные, торговые и производственные роли
-1998-01 - 2012-10
-
-
-- Горный инженер подземных разработок.
-
-- Работа в торговле и производственных ролях.
-
-- Дополнительный жизненный и управленческий опыт вне IT.
-
-
-
-
-## Education
-
-- **Компьютерная инженерия / Компьютерные системы и сети** — Запорожский институт экономики и информационных технологий (2008-2011)
-
-- **Горный инженер подземных разработок** — Криворожский технический университет (1998-2003)
-
-- **Программирование в среде Delphi** — Институт современных профессий (2006)
-
-- **Angular 9** — Luxoft (2021)
+https://qwert11.github.io/resume2/

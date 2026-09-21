@@ -1,0 +1,5 @@
+languages:
+  - name: {uk: "Українська", en: "Ukrainian"}
+    level: {uk: "рідна", en: "native"}
+  - name: {uk: "Англійська", en: "English"}
+    level: {uk: "технічна документація і листування; розмовна — базова", en: "technical documentation and written communication; spoken at basic level"}

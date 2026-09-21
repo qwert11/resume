@@ -1,39 +1,41 @@
-# {{ profile.name }}
-**{{ target.title }}**
+# {{ s.name }}
 
-{{ summary }}
+**{{ s.title }}** · {{ s.contacts | join(' · ') }} · {{ s.location }}
 
-## Key skills
-{% for item in highlight_skills %}
-- {{ item }}
+{{ s.summary }}
+
+{{ s.metrics | join(' · ') }}
+
+## {{ s.labels.stack }}
+{% for label, items in s.skills %}
+- **{{ label }}:** {{ items | join(', ') }}
+{%- endfor %}
+
+## {{ s.labels.details }}
+{% for e in s.jobs %}
+### {{ e.title }} — {{ e.company }}
+{{ e.period }} · {{ e.city }}
+{% for b in e.bullets %}
+- {{ b }}
+{%- endfor %}
 {% endfor %}
+{%- if s.earlier %}
+{{ s.earlier }}
+{%- endif %}
 
-## Achievements
-{% for item in achievements %}
-- {{ item.text }}
-{% endfor %}
+## {{ s.labels.projects }}
+{% for p in s.projects %}
+- **{{ p.name }}** ({{ p.period }}) — {{ p.description }}{% if p.stack %} `{{ p.stack | join('` `') }}`{% endif %}
+{%- endfor %}
 
-## Projects
-{% for p in projects %}
-### {{ p.name }} ({{ p.period }})
-**Role:** {{ p.role }}
+## {{ s.labels.education }}
+{% for line in s.education %}
+- {{ line }}
+{%- endfor %}
 
-{{ p.description }}
+## {{ s.labels.languages }}
+{% for line in s.languages %}
+- {{ line }}
+{%- endfor %}
 
-{% endfor %}
-
-## Experience
-{% for item in experiences %}
-### {{ item.company }} | {{ item.title }}
-{{ item.start }} - {{ item.end }}
-
-{% for bullet in item.bullets %}
-- {{ bullet }}
-{% endfor %}
-
-{% endfor %}
-
-## Education
-{% for e in education %}
-- **{{ e.specialty }}** — {{ e.institution }} ({{ e.period }})
-{% endfor %}
+{{ s.full_resume }}

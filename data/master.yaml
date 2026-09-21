@@ -1,38 +1,93 @@
 profile:
-  name: "Юрий"
-  slug: "resume"
-  title_options:
-    full: "Full Career"
-    dotnet: ".NET / ASP.NET Developer"
-    delphi: "Delphi Developer"
-    web: "Software Engineer"
-  location: "Дніпро, Україна"
-  work_modes:
-    - remote
-    - hybrid
-    - office
-  contacts:
-    github: "https://github.com/qwert11"
-    website: "https://qwert11.github.io/resume"
-    linkedin: ""
+  name: {uk: "Юрій Заїка", en: "Yurii Zaika"}
+  location: {uk: "Дніпро, Україна · віддалено або гібрид", en: "Dnipro, Ukraine · remote or hybrid"}
+  titles:
+    full: {uk: "Провідний інженер ПЗ · .NET та Delphi", en: "Lead Software Engineer · .NET & Delphi"}
+    dotnet: {uk: "Senior .NET інженер", en: "Senior .NET Engineer"}
+    delphi: {uk: "Senior Delphi інженер · модернізація legacy", en: "Senior Delphi Engineer · Legacy Modernization"}
+    web: {uk: "Full Stack інженер · .NET та Angular", en: "Full Stack Engineer · .NET & Angular"}
+    ai: {uk: "AI / Python інженер", en: "AI / Python Engineer"}
   summary:
-    full: >
-      Разработчик корпоративного ПО с сильным опытом в Delphi и .NET, а также более широкой
-      карьерной историей в инженерных, производственных и торговых ролях. Сильная база в
-      enterprise-системах, SQL, автоматизации, интеграциях и модернизации legacy-решений.
-    dotnet: >
-      .NET / ASP.NET разработчик с опытом внутренних веб-систем, доступа и аутентификации,
-      real-time уведомлений, интеграций, audit-сценариев, SQL и enterprise backend-разработки.
-    delphi: >
-      Delphi-разработчик с опытом сопровождения и развития корпоративных desktop-систем,
-      Firebird, FastReport, VCL-компонентов, синхронизации БД и модернизации legacy-кода.
-    web: >
-      Software Engineer с опытом enterprise web и desktop-систем, retail и industrial доменов,
-      сильной SQL-базой, интеграциями и переходом от legacy-архитектур к более современным решениям.
-  languages:
-    - name: "Українська"
-      level: "fluent"
-    - name: "Русский"
-      level: "native"
-    - name: "English"
-      level: "technical reading"
+    full:
+      uk: "Десять років усередині ядра однієї роздрібної мережі: торгова система на Delphi, якою щодня працюють магазини, і сервіси на ASP.NET Core, що поступово забирають її функції. Доступи для 2000+ користувачів, фіскальні та EDI-інтеграції, міграція клієнта з Delphi 6 на Delphi 12."
+      en: "Ten years inside the core systems of one retail network: a Delphi trading platform that stores run on daily, and ASP.NET Core services that keep taking over its functions. Access control for 2,000+ users, fiscal and EDI integrations, and an ongoing Delphi 6 to Delphi 12 client migration."
+    dotnet:
+      uk: "Senior .NET інженер: ASP.NET Core та Web API на .NET 7, EF Core і T-SQL, інтеграції з Kafka, EDI, M.E.Doc та Oracle EBS, аутентифікація через OIDC, ADFS і Kerberos. Власна система керування доступом на 2000+ користувачів."
+      en: "Senior .NET engineer: ASP.NET Core and Web API on .NET 7, EF Core and T-SQL, integrations over Kafka, EDI, M.E.Doc and Oracle EBS, authentication through OIDC, ADFS and Kerberos. Built the in-house access management system used by 2,000+ people."
+    delphi:
+      uk: "Delphi-інженер із десятирічним досвідом супроводу торгової системи у продакшені: 955 модулів, 828 форм, MS SQL. Веду міграцію клієнта з Delphi 6 на Delphi 12 і написав інструмент звіряння форм та мапінгу БД між версіями."
+      en: "Delphi engineer with ten years of production ownership of a retail trading system: 955 units, 828 forms, MS SQL. Currently migrating the client from Delphi 6 to Delphi 12, with a purpose-built tool that diffs forms and database mappings between the two versions."
+    web:
+      uk: "Full stack інженер: ASP.NET Core та Web API на бекенді, Angular 13 з Kendo UI і Razor на фронті, real-time через SignalR. Внутрішні системи для роздрібної мережі — доступи, аудит, звітність, інтеграції."
+      en: "Full stack engineer: ASP.NET Core and Web API on the back end, Angular 13 with Kendo UI and Razor on the front, real-time over SignalR. Internal systems for a retail network: access control, audit, reporting, integrations."
+    ai:
+      uk: "Десять років промислової розробки — і власний трек у Python та ML. Побудував голосовий пайплайн реального часу: faster-whisper на CUDA, діаризація pyannote, VAD і потокова обробка — 55 модулів, 15 500 рядків Python, з регресійними замірами затримки та RTF. Поряд — конвеєри даних на SQLAlchemy і Playwright та щоденна робота з ІІ-агентами."
+      en: "Ten years of production engineering plus a personal track in Python and ML. Built a real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD and streaming — 55 modules, 15,500 lines of Python, with regression measurements of latency and RTF. Alongside it: data pipelines on SQLAlchemy and Playwright, and daily work with AI agents."
+  contacts:
+    - {id: email, label: "xetr11@gmail.com", href: "mailto:xetr11@gmail.com"}
+    - {id: telegram, label: "t.me/xetr_11", href: "https://t.me/xetr_11"}
+    - {id: github, label: "github.com/qwert11", href: "https://github.com/qwert11"}
+  metrics:
+    - value: "10"
+      unit: {uk: "років", en: "years"}
+      label: {uk: "у виробничих системах роздрібу, з 2016 і донині", en: "in production retail systems, 2016 to now"}
+      tags: [full, dotnet, delphi, web, ai]
+    - value: "2 000+"
+      unit: {uk: "", en: ""}
+      label: {uk: "користувачів у системі доступів, яку я побудував", en: "users on the access system I built"}
+      tags: [full, dotnet, web]
+    - value: "33"
+      unit: {uk: "", en: ""}
+      label: {uk: "внутрішні системи мережі, у яких є мій код", en: "internal systems of the network carry my code"}
+      tags: [full, dotnet, delphi, web]
+    - value: "2"
+      unit: {uk: "стеки", en: "stacks"}
+      label: {uk: "Delphi і .NET — паралельно, без зупинки бізнесу", en: "Delphi and .NET in parallel, with the business running"}
+      tags: [full, delphi]
+    - value: "955"
+      unit: {uk: "модулів", en: "units"}
+      label: {uk: "і 828 форм у клієнті торгової системи", en: "and 828 forms in the trading system client"}
+      tags: [delphi]
+    - value: ".NET 7"
+      unit: {uk: "", en: ""}
+      label: {uk: "основна платформа сервісів; ще 3.1, 5 і 6 у супроводі", en: "the main service platform; 3.1, 5 and 6 also in support"}
+      tags: [dotnet, web]
+    - value: "15 500"
+      unit: {uk: "рядків", en: "lines"}
+      label: {uk: "Python у голосовому пайплайні: 55 модулів, STT і діаризація", en: "of Python in the speech pipeline: 55 modules, STT and diarization"}
+      tags: [ai, python]
+    - value: "27"
+      unit: {uk: "", en: ""}
+      label: {uk: "репозиторіїв за 2026 рік: фриланс і власні проєкти", en: "repositories in 2026: freelance and personal projects"}
+      tags: [ai, python, web]
+    - value: "6"
+      unit: {uk: "джерел", en: "sources"}
+      label: {uk: "у конвеєрі збору оголошень: OLX, ЛУН, Rieltor, Metrazh, Telegram, FB", en: "in the listings pipeline: OLX, LUN, Rieltor, Metrazh, Telegram, FB"}
+      tags: [ai, python]
+  sections:
+    stack: {uk: "Стек", en: "Stack"}
+    strengths: {uk: "Що я зробив", en: "What I delivered"}
+    summary_cards: {uk: "Коротко", en: "At a glance"}
+    projects: {uk: "Ключові проєкти", en: "Key projects"}
+    details: {uk: "Досвід", en: "Experience"}
+    education: {uk: "Освіта та сертифікати", en: "Education and certificates"}
+    domain: {uk: "Предметна область", en: "Domain knowledge"}
+    languages: {uk: "Мови", en: "Languages"}
+    side: {uk: "Код на GitHub", en: "Code on GitHub"}
+  ui:
+    auto: {uk: "Авто", en: "Auto"}
+    light: {uk: "Світла", en: "Light"}
+    dark: {uk: "Темна", en: "Dark"}
+    pdf: {uk: "PDF", en: "PDF"}
+    word: {uk: "Word", en: "Word"}
+    markdown: {uk: "Markdown", en: "Markdown"}
+    full: {uk: "Все", en: "Full"}
+    dotnet: {uk: ".NET", en: ".NET"}
+    delphi: {uk: "Delphi", en: "Delphi"}
+    web: {uk: "Web", en: "Web"}
+    ai: {uk: "AI / Python", en: "AI / Python"}
+    ua: {uk: "Укр", en: "UA"}
+    en: {uk: "Анг", en: "EN"}
+    details_anchor: {uk: "Деталі нижче", en: "Details below"}
+    present: {uk: "донині", en: "present"}
+    profiles_hint: {uk: "Профіль резюме", en: "Resume profile"}

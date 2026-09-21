@@ -1,83 +1,49 @@
-# Resume Engine
+# Одностраничное резюме
 
-Готовый проект для GitHub Pages:
+Живая страница: **https://qwert11.github.io/resume/** — полная версия лежит в
+[resume2](https://github.com/qwert11/resume2) и открывается по ссылке из футера.
 
-- единая YAML-база
-- несколько target-резюме
-- генерация HTML / Markdown / DOCX / PDF
-- страницы:
-  - `/resume` → полная карьера
-  - `/resume/dotnet`
-  - `/resume/delphi`
-  - `/resume/web`
-- GitHub Actions автоматически пересобирает сайт после изменений в YAML
+## Откуда берутся данные
 
-## Как использовать
+Здесь нет своей копии фактов. `scripts/fetch_source.py` при каждой сборке тянет
+YAML из `qwert11/resume2/data` — имя, контакты, опыт, проекты, стек, образование.
+Скачанное кладётся в `data/` и коммитится как снимок: так сборка переживает
+отсутствие сети, а `git diff` показывает, что изменилось в источнике.
 
-### 1. Установить зависимости локально
+Правки вносятся в resume2. Эта страница пересобирается: при пуше в свои файлы,
+по расписанию раз в сутки и вручную через `workflow_dispatch`.
+
+## Что попадает на страницу
+
+Одна страница не вмещает всё, поэтому отбор описан в `onepager.yaml`:
+
+| Ключ | Смысл |
+| --- | --- |
+| `jobs` | какие позиции показать целиком; остальные сворачиваются в строку «Раніше» |
+| `max_bullets` | сколько пунктов оставить у каждой позиции |
+| `projects` | какие проекты показать, по одной строке каждый |
+| `project_sentences` | сколько предложений описания оставить |
+| `skill_groups`, `max_skills` | какие группы стека и по сколько пунктов |
+| `metrics`, `max_metrics` | какие цифры вывести в шапке |
+
+## Сборка
+
 ```bash
 pip install -r requirements.txt
+python scripts/build.py              # с обновлением данных из resume2
+python scripts/build.py --skip-fetch # из локального снимка
 ```
 
-### 2. Собрать всё
-```bash
-python scripts/build.py --all
-```
+Результат — `output/site`: `index.html`, а также `resume.pdf` / `.docx` / `.md`
+на английском и `resume.uk.*` на украинском. Кнопки скачивания переключаются
+вместе с языком интерфейса.
 
-### 3. Собрать только одну цель
-```bash
-python scripts/build.py --target dotnet
-python scripts/build.py --target delphi
-python scripts/build.py --target full
-python scripts/build.py --target web
-```
+## Вёрстка
 
-### 4. Что редактировать
-Обычно только:
-
-- `data/master.yaml`
-- `data/experience.yaml`
-- `data/projects.yaml`
-- `data/skills.yaml`
-- `data/education.yaml`
-- `data/achievements.yaml`
-
-## GitHub Pages
-
-В настройках репозитория:
-
-`Settings -> Pages -> Source -> GitHub Actions`
-
-После этого каждый commit в `main` будет:
-1. собирать HTML/PDF/DOCX/MD
-2. публиковать сайт в GitHub Pages
-
-## Структура
-
-```text
-resume/
-├── .github/workflows/build-pages.yml
-├── assets/
-│   ├── css/site.css
-│   └── js/theme.js
-├── data/
-│   ├── master.yaml
-│   ├── experience.yaml
-│   ├── projects.yaml
-│   ├── skills.yaml
-│   ├── education.yaml
-│   └── achievements.yaml
-├── output/
-├── scripts/
-│   ├── build.py
-│   └── utils.py
-├── targets/
-│   ├── full.yaml
-│   ├── dotnet.yaml
-│   ├── delphi.yaml
-│   └── web.yaml
-├── templates/
-│   ├── site.html.j2
-│   └── resume.md.j2
-└── requirements.txt
-```
+- **Печать.** `Ctrl+P` даёт ровно одну страницу A4: элементы управления скрыты,
+  кегли переведены в пункты, разрывы внутри блоков запрещены. Проверено — контент
+  занимает 968 px из 1040 px печатной области.
+- **Телефон.** Одна колонка от 320 px, тап-цели не меньше 36 px, стек
+  перестраивается в список, горизонтального скролла нет.
+- **Темы.** «Авто» — светлая с 07:00 до 19:59 по локальному времени, иначе тёмная.
+- **Языки.** «Авто» — украинский для киевской таймзоны или `uk`-локали, иначе английский.

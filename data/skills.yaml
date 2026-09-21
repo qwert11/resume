@@ -1,97 +1,155 @@
-languages:
-  - name: "C#"
-    tags: [dotnet, web, backend]
-  - name: "Delphi / Object Pascal"
-    tags: [delphi, desktop, enterprise]
-  - name: "JavaScript"
-    tags: [web, frontend-lite]
-  - name: "SQL"
-    tags: [sql, database]
-  - name: "Java"
-    tags: [web, java]
-  - name: "PHP"
-    tags: [web, php]
-  - name: "C++"
-    tags: [teaching]
-
-frameworks:
-  - name: "ASP.NET MVC"
-    tags: [dotnet, web, backend]
-  - name: "ASP.NET Core"
-    tags: [dotnet, web, backend]
-  - name: "Web API"
-    tags: [dotnet, web, backend]
-  - name: "SignalR"
-    tags: [dotnet, web, realtime]
-  - name: "WCF"
-    tags: [dotnet, integration]
-  - name: "Entity Framework"
-    tags: [dotnet, orm]
-  - name: "OAuth2"
-    tags: [authentication, authorization]
-  - name: "ADFS"
-    tags: [authentication, authorization]
-  - name: "xUnit"
-    tags: [testing]
-  - name: "NSubstitute"
-    tags: [testing]
-  - name: "Kendo UI"
-    tags: [web]
-  - name: "WordPress"
-    tags: [web, php, ecommerce]
-  - name: "WooCommerce"
-    tags: [web, ecommerce]
-  - name: "OpenCart"
-    tags: [web, ecommerce]
-
-databases:
-  - name: "MS SQL"
-    tags: [sql, database]
-  - name: "Firebird"
-    tags: [sql, database, delphi]
-  - name: "Oracle"
-    tags: [sql, database, enterprise]
-  - name: "MySQL"
-    tags: [sql, database]
-  - name: "PostgreSQL"
-    tags: [sql, database]
-
-tools:
-  - name: "IIS"
-    tags: [web]
-  - name: "Swagger"
-    tags: [api]
-  - name: "Postman"
-    tags: [api]
-  - name: "Git"
-    tags: [vcs]
-  - name: "SVN"
-    tags: [vcs]
-  - name: "Bitbucket"
-    tags: [vcs]
-  - name: "FastReport"
-    tags: [delphi, reporting]
-  - name: "DevExpress"
-    tags: [delphi, desktop]
-  - name: "RxLib"
-    tags: [delphi]
-  - name: "JasperReports"
-    tags: [java, reporting]
-
-architecture:
-  - name: "Legacy modernization"
-    tags: [legacy, modernization, architecture]
-  - name: "Modular monolith"
-    tags: [architecture, modernization]
-  - name: "Three-tier architecture"
-    tags: [architecture]
-  - name: "ORM"
-    tags: [architecture, orm]
-  - name: "GoF patterns"
-    tags: [architecture]
-  - name: "Authentication systems"
-    tags: [authentication, authorization, architecture]
-  - name: "Enterprise integrations"
-    tags: [integration, architecture]
-  - name: "Database synchronization"
-    tags: [architecture, database]
+groups:
+  - id: backend
+    label: {uk: "Бекенд", en: "Backend"}
+    tags: [full, dotnet, web, backend]
+    items:
+      - {name: "C#", tags: [dotnet, web, backend]}
+      - {name: ".NET 7 / 6 / 5", tags: [dotnet, web, backend]}
+      - {name: ".NET Core 3.1", tags: [dotnet, web, backend]}
+      - {name: "ASP.NET Core", tags: [dotnet, web, backend]}
+      - {name: "ASP.NET MVC", tags: [dotnet, web, backend]}
+      - {name: "Web API / REST", tags: [dotnet, web, backend]}
+      - {name: "SignalR", tags: [dotnet, web, backend]}
+      - {name: "Worker Services", tags: [dotnet, backend]}
+      - {name: "Hangfire", tags: [dotnet, backend]}
+      - {name: "Quartz", tags: [dotnet, backend]}
+      - {name: "AutoMapper", tags: [dotnet, backend]}
+      - {name: "Flurl.Http", tags: [dotnet, backend]}
+  - id: data
+    label: {uk: "Дані", en: "Data"}
+    tags: [full, dotnet, delphi, web, sql, data]
+    items:
+      - {name: "MS SQL Server", tags: [dotnet, delphi, web, sql, data]}
+      - {name: "T-SQL", tags: [dotnet, delphi, web, sql, data]}
+      - {name: "EF Core 7", tags: [dotnet, web, sql]}
+      - {name: "ADO.NET", tags: [dotnet, sql]}
+      - {name: "Oracle", tags: [dotnet, delphi, sql]}
+      - {name: "PostgreSQL", tags: [dotnet, web, sql, data]}
+      - {name: "Firebird", tags: [delphi, sql]}
+      - {name: "SSIS", tags: [dotnet, sql]}
+      - {name: "SSRS", tags: [dotnet, sql]}
+      - {name: "SQL CLR", tags: [dotnet, sql]}
+  - id: frontend
+    label: {uk: "Фронтенд", en: "Front end"}
+    tags: [full, dotnet, web, frontend]
+    items:
+      - {name: "Angular 13", tags: [web, dotnet, frontend]}
+      - {name: "TypeScript", tags: [web, dotnet, frontend]}
+      - {name: "Kendo UI for Angular", tags: [web, dotnet, frontend]}
+      - {name: "Telerik UI for ASP.NET Core", tags: [web, dotnet, frontend]}
+      - {name: "Razor / MVC views", tags: [web, dotnet, frontend]}
+      - {name: "JavaScript", tags: [web, dotnet, frontend]}
+      - {name: "HTML / CSS", tags: [web, dotnet, frontend]}
+      - {name: "jQuery", tags: [web, frontend]}
+  - id: integration
+    label: {uk: "Інтеграції", en: "Integrations"}
+    tags: [full, dotnet, delphi, web, integration]
+    items:
+      - {name: "EDI / ЕДО", tags: [dotnet, delphi, integration]}
+      - {name: "M.E.Doc", tags: [dotnet, delphi, integration]}
+      - {name: "Oracle EBS", tags: [dotnet, integration]}
+      - {name: "1С", tags: [dotnet, integration]}
+      - {name: "Kafka", tags: [dotnet, integration]}
+      - {name: "BizTalk", tags: [dotnet, integration]}
+      - {name: "WCF / SOAP", tags: [dotnet, delphi, integration]}
+      - {name: "SMPP / GSM API", tags: [dotnet, integration]}
+      - {name: "API Gateway", tags: [dotnet, web, integration]}
+      - {name: "GemBox.Spreadsheet", tags: [dotnet, integration]}
+  - id: security
+    label: {uk: "Доступи", en: "Access and security"}
+    tags: [full, dotnet, web, authentication]
+    items:
+      - {name: "OpenID Connect", tags: [dotnet, web, authentication]}
+      - {name: "OAuth2", tags: [dotnet, web, authentication]}
+      - {name: "JWT Bearer", tags: [dotnet, web, authentication]}
+      - {name: "ADFS", tags: [dotnet, web, authentication]}
+      - {name: "Kerberos / Negotiate", tags: [dotnet, web, authentication]}
+      - {name: "Active Directory", tags: [dotnet, web, authentication]}
+      - {name: "RBAC", tags: [dotnet, web, authentication]}
+  - id: quality
+    label: {uk: "Якість і постачання", en: "Quality and delivery"}
+    tags: [full, dotnet, delphi, web, quality]
+    items:
+      - {name: "xUnit / NUnit", tags: [dotnet, web, quality]}
+      - {name: "NSubstitute / Moq", tags: [dotnet, web, quality]}
+      - {name: "AutoFixture", tags: [dotnet, quality]}
+      - {name: "FluentAssertions", tags: [dotnet, quality]}
+      - {name: "SonarQube", tags: [dotnet, web, quality]}
+      - {name: "Jenkins", tags: [dotnet, web, quality]}
+      - {name: "Docker", tags: [dotnet, web, quality]}
+      - {name: "Serilog / NLog", tags: [dotnet, web, quality]}
+      - {name: "Elastic APM", tags: [dotnet, quality]}
+      - {name: "Git / приватний NuGet", tags: [dotnet, delphi, web, quality]}
+  - id: desktop
+    label: {uk: "Десктоп", en: "Desktop"}
+    tags: [full, delphi, desktop]
+    items:
+      - {name: "Delphi 6 → 12 / 13", tags: [delphi, desktop]}
+      - {name: "Object Pascal", tags: [delphi, desktop]}
+      - {name: "VCL", tags: [delphi, desktop]}
+      - {name: "DevExpress", tags: [delphi, desktop]}
+      - {name: "FastReport", tags: [delphi, desktop]}
+      - {name: "RX Library", tags: [delphi, desktop]}
+      - {name: "Indy", tags: [delphi, desktop]}
+      - {name: "NativeExcel / NativeXml", tags: [delphi, desktop]}
+      - {name: "ADO / OLE DB", tags: [delphi, desktop]}
+  - id: practice
+    label: {uk: "Підходи", en: "Engineering practice"}
+    tags: [full, dotnet, delphi, web, architecture]
+    items:
+      - {name: {uk: "Модернізація legacy", en: "Legacy modernization"}, tags: [dotnet, delphi, web, architecture]}
+      - {name: {uk: "Модульний моноліт", en: "Modular monolith"}, tags: [dotnet, web, architecture]}
+      - {name: {uk: "Трирівнева архітектура", en: "Three-tier architecture"}, tags: [dotnet, delphi, architecture]}
+      - {name: {uk: "Проєктування інтеграцій", en: "Integration design"}, tags: [dotnet, delphi, architecture]}
+      - {name: {uk: "Робота в проді 24/7", en: "Production ownership"}, tags: [dotnet, delphi, web, architecture]}
+  - id: python
+    label: {uk: "Python", en: "Python"}
+    tags: [full, ai, python, data]
+    items:
+      - {name: "Python 3.11", tags: [ai, python, data]}
+      - {name: "FastAPI", tags: [ai, python]}
+      - {name: "SQLAlchemy 2", tags: [ai, python, data]}
+      - {name: "Alembic", tags: [ai, python, data]}
+      - {name: "Pydantic", tags: [ai, python]}
+      - {name: "Typer CLI", tags: [ai, python]}
+      - {name: "Playwright", tags: [ai, python, data]}
+      - {name: "selectolax", tags: [ai, python, data]}
+      - {name: "NumPy", tags: [ai, python]}
+      - {name: "pytest", tags: [ai, python, quality]}
+      - {name: "ruff / black", tags: [ai, python, quality]}
+      - {name: "Jinja2", tags: [ai, python]}
+  - id: ai
+    label: {uk: "Мова та ML", en: "Speech and ML"}
+    tags: [full, ai]
+    items:
+      - {name: "faster-whisper (CUDA)", tags: [ai]}
+      - {name: "pyannote.audio", tags: [ai]}
+      - {name: "VAD", tags: [ai]}
+      - {name: {uk: "Діаризація мовців", en: "Speaker diarization"}, tags: [ai]}
+      - {name: {uk: "Оцінка якості: RTF, затримка", en: "Quality evaluation: RTF, latency"}, tags: [ai]}
+      - {name: {uk: "Потокова обробка аудіо", en: "Streaming audio pipelines"}, tags: [ai]}
+      - {name: "WASAPI / sounddevice", tags: [ai]}
+      - {name: "PyTorch / GPU", tags: [ai]}
+  - id: agents
+    label: {uk: "Робота з ІІ-агентами", en: "Working with AI agents"}
+    tags: [full, ai, python, web]
+    items:
+      - {name: "Claude Code", tags: [ai, python, web]}
+      - {name: "MCP-сервери", tags: [ai, python, web]}
+      - {name: {uk: "Власні субагенти та хуки", en: "Custom subagents and hooks"}, tags: [ai, web]}
+      - {name: {uk: "Інструменти для агентів (CDP)", en: "Agent tooling (CDP)"}, tags: [ai, web]}
+      - {name: {uk: "Промпт-інженерія", en: "Prompt engineering"}, tags: [ai]}
+  - id: jsstack
+    label: {uk: "JS / TS екосистема", en: "JS / TS ecosystem"}
+    tags: [full, web, ai, frontend]
+    items:
+      - {name: "Next.js 16", tags: [web, frontend, ai]}
+      - {name: "React 19", tags: [web, frontend, ai]}
+      - {name: "NestJS", tags: [web, backend, ai]}
+      - {name: "Prisma", tags: [web, backend, ai]}
+      - {name: "Expo / React Native", tags: [web]}
+      - {name: "Tailwind CSS", tags: [web, frontend]}
+      - {name: "Zustand / TanStack Query", tags: [web, frontend]}
+      - {name: "MapLibre", tags: [web]}
+      - {name: "Vite", tags: [web, frontend]}
+      - {name: "Node.js", tags: [web, backend, ai]}

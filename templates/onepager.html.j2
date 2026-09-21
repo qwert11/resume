@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ summary_text }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<script>window.RESUME_DATA = {{ js_data | safe }};</script>
+<script src="assets/js/theme.js"></script>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="sheet">
+
+  <header class="head">
+    <div class="who">
+      <h1 data-i18n-name>{{ name_text }}</h1>
+      <p class="role" data-i18n-target-title>{{ title_text }}</p>
+      <ul class="contacts">
+        {%- for c in contacts %}
+        <li><a href="{{ c.href }}"{% if c.href.startswith('http') %} target="_blank" rel="noopener"{% endif %}>{{ c.label }}</a></li>
+        {%- endfor %}
+        <li class="place" data-uk="{{ location.uk }}" data-en="{{ location.en }}">{{ location.en }}</li>
+      </ul>
+    </div>
+
+    <div class="tools">
+      <div class="seg" role="group" aria-label="Theme">
+        <button type="button" data-theme-mode="auto"></button><button type="button" data-theme-mode="light"></button><button type="button" data-theme-mode="dark"></button>
+      </div>
+      <div class="seg" role="group" aria-label="Language">
+        <button type="button" data-lang="uk"></button><button type="button" data-lang="en"></button>
+      </div>
+      <div class="dl">
+        <a class="btn primary" href="resume.pdf" data-dl-pdf data-i18n-btn-pdf></a>
+        <a class="btn" href="resume.docx" data-dl-docx data-i18n-btn-word></a>
+        <a class="btn" href="resume.md" data-dl-md data-i18n-btn-markdown></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <p class="summary" data-i18n-summary>{{ summary_text }}</p>
+
+    <ul class="figures">
+      {%- for m in metrics %}
+      <li>
+        <b>{{ m.value }}{% if m.unit.en %} <span data-uk="{{ m.unit.uk }}" data-en="{{ m.unit.en }}">{{ m.unit.en }}</span>{% endif %}</b>
+        <span data-uk="{{ m.label.uk }}" data-en="{{ m.label.en }}">{{ m.label.en }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+
+    <section class="block">
+      <h2 data-i18n-section-stack></h2>
+      <dl class="stack">
+        {%- for g in skill_groups %}
+        <dt data-uk="{{ g.label.uk }}" data-en="{{ g.label.en }}">{{ g.label.en }}</dt>
+        <dd>{% for s in g['items'] %}<span data-uk="{{ s.uk }}" data-en="{{ s.en }}">{{ s.en }}</span>{% if not loop.last %}<i>·</i>{% endif %}{% endfor %}</dd>
+        {%- endfor %}
+      </dl>
+    </section>
+
+    <section class="block">
+      <h2 data-i18n-section-details></h2>
+      {%- for e in jobs %}
+      <article class="job">
+        <div class="job-head">
+          <h3 data-uk="{{ e.title.uk }}" data-en="{{ e.title.en }}">{{ e.title.en }}</h3>
+          <span class="at" data-uk="{{ e.company.uk }}" data-en="{{ e.company.en }}">{{ e.company.en }}</span>
+          <span class="when">{{ e.start }} — {% if e.end == 'present' %}<span data-i18n-present></span>{% else %}{{ e.end }}{% endif %} · <span data-uk="{{ e.city.uk }}" data-en="{{ e.city.en }}">{{ e.city.en }}</span></span>
+        </div>
+        <ul class="points">
+          {%- for b in e.bullets_en %}
+          <li data-uk="{{ e.bullets_uk[loop.index0] }}" data-en="{{ b }}">{{ b }}</li>
+          {%- endfor %}
+        </ul>
+      </article>
+      {%- endfor %}
+      {%- if earlier.en %}
+      <p class="earlier" data-uk="{{ earlier.uk }}" data-en="{{ earlier.en }}">{{ earlier.en }}</p>
+      {%- endif %}
+    </section>
+
+    <section class="block">
+      <h2 data-i18n-section-projects></h2>
+      <ul class="projects">
+        {%- for p in projects %}
+        <li>
+          <span class="pname" data-uk="{{ p.name.uk }}" data-en="{{ p.name.en }}">{{ p.name.en }}</span>
+          <span class="when">{{ p.period }}</span>
+          <span class="pdesc" data-uk="{{ p.description.uk }}" data-en="{{ p.description.en }}">{{ p.description.en }}</span>
+          {%- if p.stack %}<span class="pstack">{{ p.stack | join(' · ') }}</span>{% endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+    </section>
+
+    <div class="tail">
+      <section class="block">
+        <h2 data-i18n-section-education></h2>
+        <ul class="plain">
+          {%- for line in education %}
+          <li data-uk="{{ line.uk }}" data-en="{{ line.en }}">{{ line.en }}</li>
+          {%- endfor %}
+        </ul>
+      </section>
+      <section class="block">
+        <h2 data-i18n-section-languages></h2>
+        <ul class="plain">
+          {%- for line in languages %}
+          <li data-uk="{{ line.uk }}" data-en="{{ line.en }}">{{ line.en }}</li>
+          {%- endfor %}
+        </ul>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="foot">
+    <a href="{{ full_resume }}" target="_blank" rel="noopener" data-i18n-full-link>{{ full_resume }}</a>
+    <span class="muted">{{ build_date }}</span>
+  </footer>
+
+</div>
+
+<script src="assets/js/i18n.js"></script>
+</body>
+</html>

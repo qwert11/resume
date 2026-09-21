@@ -4,19 +4,26 @@ on:
   push:
     branches: [ main ]
     paths:
-      - "data/**"
-      - "targets/**"
+      - "onepager.yaml"
       - "templates/**"
       - "assets/**"
       - "scripts/**"
       - ".github/workflows/build-pages.yml"
       - "requirements.txt"
+  # Данные живут в qwert11/resume2. Раз в сутки страница пересобирается,
+  # чтобы подхватить правки источника; можно и запустить вручную.
+  schedule:
+    - cron: "17 5 * * *"
   workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -35,9 +42,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Build all targets
-        run: |
-          python scripts/build.py --all
+      - name: Build one-pager (pulls data from resume2)
+        run: python scripts/build.py
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -46,12 +52,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: output/site
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: resume-build-output
-          path: output/
 
   deploy:
     environment:

@@ -1,0 +1,23 @@
+# Что попадает на единственную страницу. Данные берутся из github.com/qwert11/resume2,
+# здесь только отбор: одностраничник показывает не всё, а самое сильное.
+title_key: full
+summary_key: full
+
+# Позиции целиком, по порядку. Остальные сворачиваются в строку «Раніше».
+jobs: [freelance-ai, atb, kjrk]
+max_bullets: 3
+
+# Проекты одной строкой каждый.
+projects: [ork, market4, uam]
+# Описание проекта на одной странице — одно предложение.
+project_sentences: 1
+
+# Группы стека и предел пунктов в каждой, чтобы блок остался в пределах десяти строк.
+skill_groups: [backend, data, python, ai, frontend]
+max_skills: 7
+
+# Цифры в шапке.
+max_metrics: 4
+metrics: ["10", "2 000+", "33", "15 500"]
+
+full_resume: "https://qwert11.github.io/resume2/"

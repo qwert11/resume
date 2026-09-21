@@ -1,0 +1,29 @@
+side_projects:
+  - name: {uk: "Каталог житла по дев'яти областях", en: "Housing catalog across nine regions"}
+    note: {uk: "агрегатор шести джерел, карта, індекси цін, збірка через GitHub Actions", en: "six-source aggregator with a map, price indices and a GitHub Actions build"}
+    link: "https://github.com/qwert11/budynky-zahid"
+    tags: [full, ai, python, web, data, freelance]
+  - name: {uk: "ML Formula Wiki", en: "ML Formula Wiki"}
+    note: {uk: "72 формули машинного навчання з книги Рашки, рендер KaTeX", en: "72 machine-learning formulas from Raschka's book, rendered with KaTeX"}
+    link: "https://github.com/qwert11/ML-Formula-Wiki"
+    tags: [full, ai, python, web]
+  - name: {uk: "M3 → M4 Mapping Checker", en: "M3 to M4 Mapping Checker"}
+    note: {uk: "звіряння форм і викликів процедур між Delphi 6 і Delphi 13", en: "diffs forms and stored-procedure calls between Delphi 6 and Delphi 13"}
+    link: "https://github.com/qwert11/d6_d13_dbmapping_checker"
+    tags: [full, ai, python, delphi, legacy]
+  - name: {uk: "TeamBeacon", en: "TeamBeacon"}
+    note: {uk: "real-time маяк для пошуку своїх у натовпі: ASP.NET Core, SignalR, Docker", en: "a real-time beacon for finding your group in a crowd: ASP.NET Core, SignalR, Docker"}
+    link: "https://github.com/qwert11/TeamBeacon"
+    tags: [full, dotnet, web, ai]
+  - name: {uk: "SQL Profiler Normalizer", en: "SQL Profiler Normalizer"}
+    note: {uk: "перетворює sp_executesql із профайлера на читабельний EXEC, повністю у браузері", en: "turns profiler sp_executesql output into a readable EXEC, fully client-side"}
+    link: "https://github.com/qwert11/sql-profiler-normalizer"
+    tags: [full, dotnet, web, sql, ai]
+  - name: {uk: "Angle Tool", en: "Angle Tool"}
+    note: {uk: "вимірювання кутів на графіках і скриншотах прямо у браузері", en: "measures line angles on charts and screenshots in the browser"}
+    link: "https://github.com/qwert11/slope-angle"
+    tags: [full, web, frontend, ai]
+  - name: {uk: "Resume Engine", en: "Resume Engine"}
+    note: {uk: "цей сайт: YAML → Jinja → HTML, PDF, DOCX і Markdown двома мовами", en: "this site: YAML to Jinja to HTML, PDF, DOCX and Markdown in two languages"}
+    link: "https://github.com/qwert11/resume2"
+    tags: [full, ai, python, web]

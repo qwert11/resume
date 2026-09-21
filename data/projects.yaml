@@ -1,118 +1,111 @@
-- id: warehouse_modernization
-  name: "Перевод старого клиентского приложения РЦ складского учета"
-  period: "2024-now"
-  role: "Developer / modernizer"
-  description: "Миграция legacy-приложения Delphi 6 к Delphi 12/13 с переработкой ядра и архитектуры."
-  tags:
-    - full
-    - delphi
-    - desktop
-    - warehouse
-    - legacy
-    - modernization
-    - architecture
-
-- id: recyclables
-  name: "Вторсырье"
-  period: "2023-2025"
-  role: "Developer"
-  description: "ASP.NET MVC / Core web-проект с интеграцией в M.E.Doc и retail-инфраструктуру."
-  tags:
-    - full
-    - dotnet
-    - web
-    - backend
-    - integration
-    - retail
-
-- id: store_journals
-  name: "Журналы магазина"
-  period: "2022-2023"
-  role: "Developer"
-  description: "Внутренняя audit/reporting-платформа для retail-процессов."
-  tags:
-    - full
-    - dotnet
-    - web
-    - backend
-    - reporting
-    - audit
-    - retail
-
+- id: ork
+  primary: [ai, full]
+  name: {uk: "Голосовий пайплайн реального часу (ORK)", en: "Real-time speech pipeline (ORK)"}
+  period: "2026"
+  role: {uk: "Автор", en: "Author"}
+  description:
+    uk: "Розпізнавання мови зі звінків у реальному часі: паралельний захват мікрофона і системного звуку, нарізка по паузах через VAD, faster-whisper на GPU, діаризація pyannote з інкрементальною кластеризацією, переклад. Окремий набір регресійних замірів — RTF, затримка під навантаженням, стійкість до шуму — показує, де саме втрачається якість."
+    en: "Real-time speech recognition from calls: parallel microphone and system-audio capture, VAD-based segmentation, faster-whisper on GPU, pyannote diarization with incremental clustering, translation. A separate regression suite — RTF, latency under load, noise robustness — shows exactly where quality is lost."
+  stack: ["Python 3.11", "faster-whisper", "pyannote.audio", "CUDA", "FastAPI", "NumPy", "WASAPI"]
+  tags: [full, ai, python, data, freelance]
+- id: olxsniff
+  primary: [ai]
+  name: {uk: "Конвеєр збору даних нерухомості", en: "Real-estate data pipeline"}
+  period: "2026"
+  role: {uk: "Автор", en: "Author"}
+  description:
+    uk: "Парсер оголошень із пагінацією, нормалізацією та історією цін: моделі на SQLAlchemy 2 з міграціями Alembic поверх PostgreSQL, два транспорти — HTTP і Playwright для сторінок із захистом, CLI на Typer, конфіг через pydantic-settings, тести pytest."
+    en: "A listings parser with pagination, normalization and price history: SQLAlchemy 2 models with Alembic migrations over PostgreSQL, two transports — plain HTTP and Playwright for protected pages — a Typer CLI, pydantic-settings config and pytest coverage."
+  stack: ["Python", "SQLAlchemy 2", "Alembic", "PostgreSQL", "Playwright", "selectolax", "Typer", "pytest"]
+  tags: [full, ai, python, data, backend, freelance]
+- id: m3map
+  primary: [ai]
+  name: {uk: "Карта legacy-системи", en: "Legacy system map"}
+  period: "2026"
+  role: {uk: "Автор", en: "Author"}
+  description:
+    uk: "Інструмент для розбору торгової системи перед міграцією: Python парсить .dfm і .pas, витягує виклики процедур і зв'язки форм, Next.js показує це картою з анотаціями та коментарями по вузлах."
+    en: "A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and form relations, and a Next.js app renders it as an annotated map."
+  stack: ["Python", "Next.js", "TypeScript", "PostgreSQL"]
+  tags: [full, ai, python, web, legacy, modernization, data, freelance]
+- id: ammobility
+  primary: [web, ai]
+  name: {uk: "AM Mobility — веб і мобільний застосунок", en: "AM Mobility — web and mobile app"}
+  period: "2026"
+  role: {uk: "Фулстек-розробник", en: "Full stack developer"}
+  description:
+    uk: "Клієнтський проєкт: бекенд на NestJS зі Swagger і PostgreSQL, вебчастина на Next.js, мобільний застосунок на Expo та React Native з картами MapLibre, геолокацією і офлайн-станом."
+    en: "Client project: a NestJS back end with Swagger and PostgreSQL, a Next.js web app, and an Expo / React Native mobile app with MapLibre maps, geolocation and offline state."
+  stack: ["NestJS", "Next.js", "Expo", "React Native", "PostgreSQL", "MapLibre", "TanStack Query"]
+  tags: [full, web, frontend, backend, fullstack, freelance, ai]
+- id: market4
+  primary: [delphi, full]
+  name: {uk: "Міграція торгового клієнта: Delphi 6 → Delphi 12", en: "Trading client migration: Delphi 6 to Delphi 12"}
+  period: "2024 — 2026"
+  role: {uk: "Технічний лід міграції", en: "Migration lead"}
+  description:
+    uk: "Переведення клієнта торгової системи (955 модулів, 828 форм) на сучасний компілятор із переробкою ядра. Написав окремий інструмент, що звіряє форми та мапінг таблиць між старою і новою версіями — міграція йде без зупинки магазинів."
+    en: "Moving the trading system client (955 units, 828 forms) to a modern compiler with a core redesign. Built a separate tool that diffs forms and table mappings between the old and new versions, so the migration runs without stopping stores."
+  stack: ["Delphi 12/13", "Object Pascal", "VCL", "MS SQL", "DevExpress", "FastReport"]
+  link: {label: "github.com/qwert11/d6_d13_dbmapping_checker", href: "https://github.com/qwert11/d6_d13_dbmapping_checker"}
+  tags: [full, delphi, desktop, warehouse, legacy, modernization, architecture]
+- id: fiscal
+  primary: [delphi, full]
+  name: {uk: "Фіскальний контур: еАкциз, АЕД, митниця", en: "Fiscal workflows: excise stamps, AED, customs"}
+  period: "2019 — 2026"
+  role: {uk: "Розробник напряму", en: "Owner of the workstream"}
+  description:
+    uk: "Наскрізна підтримка змін законодавства в торговій системі: сканування акцизних марок, електронні акцизні документи, коригування податкових накладних, УКТЗЕД, митні спрощення, ставка ПДВ 14 %."
+    en: "End-to-end delivery of legislative change inside the trading system: excise stamp scanning, electronic excise documents, tax invoice adjustments, UKTZED codes, customs simplifications, the 14% VAT rate."
+  stack: ["Delphi", "T-SQL", "MS SQL", "EDI", "M.E.Doc"]
+  tags: [full, delphi, dotnet, retail, integration, enterprise]
 - id: uam
-  name: "UAM / User Access Manager"
-  period: "2020-2022"
-  role: "Developer"
-  description: "Система управления доступом и аутентификацией для 2000+ пользователей."
-  tags:
-    - full
-    - dotnet
-    - web
-    - backend
-    - authentication
-    - authorization
-    - access-management
-    - enterprise
-
-- id: sms_messenger
-  name: "SMS Messenger"
-  period: "2020-2021"
-  role: "Architect / Developer"
-  description: "Платформа уведомлений: отправка SMS через GSM API и SMPP."
-  tags:
-    - full
-    - dotnet
-    - web
-    - backend
-    - integration
-    - messaging
-    - architecture
-
-- id: password_change
-  name: "Смена паролей магазина"
-  period: "2019-2020"
-  role: "Developer"
-  description: "Внутренний ASP.NET MVC проект, MSSQL, SignalR, паттерны GoF."
-  tags:
-    - full
-    - dotnet
-    - web
-    - backend
-    - signalr
-    - sql
-    - retail
-
-- id: warehouse_client
-  name: "Клиентская часть АС складского учета"
-  period: "2016-2019"
-  role: "Developer / support"
-  description: "Сопровождение и развитие Delphi-клиента складского учета."
-  tags:
-    - full
-    - delphi
-    - desktop
-    - warehouse
-    - retail
-    - enterprise
-
-- id: motorshow
-  name: "Автосалон / автоматизированная система"
-  period: "2015-2016"
-  role: "Developer"
-  description: "Java + Firebird решение для малого бизнеса."
-  tags:
-    - full
-    - web
-    - java
-    - smb
-
-- id: ecommerce_wordpress
-  name: "Интернет-магазины и плагин WordPress"
-  period: "2015-2016"
-  role: "Developer"
-  description: "Настройка e-commerce решений и разработка плагина WordPress."
-  tags:
-    - full
-    - web
-    - php
-    - ecommerce
+  primary: [dotnet, web, full]
+  name: {uk: "UAM — керування доступом", en: "UAM — access management"}
+  period: "2020 — 2022"
+  role: {uk: "Розробник", en: "Developer"}
+  description:
+    uk: "Централізована система прав і аутентифікації для 2000+ користувачів мережі: ролі та заявки на доступ, інтеграція з Active Directory, вхід через OpenID Connect, ADFS і Kerberos."
+    en: "Centralized permissions and authentication for 2,000+ people in the network: roles and access requests, Active Directory integration, sign-in through OpenID Connect, ADFS and Kerberos."
+  stack: ["ASP.NET Core", "C#", "EF Core", "MS SQL", "OIDC", "ADFS", "Angular"]
+  tags: [full, dotnet, web, backend, authentication, authorization, access-management, enterprise, fullstack]
+- id: journals
+  primary: [dotnet, web]
+  name: {uk: "Журнали магазину", en: "Store Journals"}
+  period: "2021 — 2023"
+  role: {uk: "Розробник", en: "Developer"}
+  description:
+    uk: "Платформа журналів та аудиту для магазинів мережі: заповнення на місцях, перевірки, звітність по регіонах. Найінтенсивніший проєкт за обсягом коду серед веб-систем."
+    en: "Journals and audit platform for the network's stores: in-store entry, inspections, regional reporting. The most code-intensive of the web systems."
+  stack: ["ASP.NET Core", "Angular 13", "Kendo UI", "EF Core", "MS SQL", "SignalR"]
+  tags: [full, dotnet, web, backend, reporting, retail, fullstack]
+- id: recyclables
+  primary: [dotnet]
+  name: {uk: "Вторсировина та оборотна тара", en: "Recyclables and returnable packaging"}
+  period: "2019 — 2024"
+  role: {uk: "Розробник", en: "Developer"}
+  description:
+    uk: "Веб-система обліку вторсировини й пулінгової тари з документообігом: інтеграція з M.E.Doc, обмін з постачальниками через EDI, звітність для бухгалтерії."
+    en: "Web system for recyclables and pooled packaging with document flow: M.E.Doc integration, supplier exchange over EDI, accounting reports."
+  stack: ["ASP.NET Core", "ASP.NET MVC", "EF Core", "MS SQL", "M.E.Doc", "EDI"]
+  tags: [full, dotnet, web, backend, integration, retail, fullstack]
+- id: sms
+  primary: [dotnet]
+  name: {uk: "SMS Messenger", en: "SMS Messenger"}
+  period: "2020 — 2023"
+  role: {uk: "Архітектор і розробник", en: "Architect and developer"}
+  description:
+    uk: "Платформа SMS-сповіщень мережі: власний шлюз до операторів через SMPP і до модемів через GSM API, черги розсилок, API для внутрішніх систем."
+    en: "The network's SMS notification platform: an in-house gateway to carriers over SMPP and to modems over GSM API, campaign queues, an API for internal systems."
+  stack: ["ASP.NET Core", "Web API", "SMPP", "GSM API", "MS SQL", "Hangfire"]
+  tags: [full, dotnet, web, backend, integration, messaging, architecture, fullstack]
+- id: gateway
+  primary: [web]
+  name: {uk: "API Gateway і сервіс звітності", en: "API Gateway and reporting service"}
+  period: "2018 — 2020"
+  role: {uk: "Розробник", en: "Developer"}
+  description:
+    uk: "Шлюз для внутрішніх сервісів мережі та сервіс звітності поверх MS SQL: єдина точка входу, наскрізна передача заголовків і авторизації, вивантаження у Excel."
+    en: "A gateway for the network's internal services and a reporting service over MS SQL: a single entry point, header and auth propagation, Excel exports."
+  stack: [".NET Core", "Web API", "MS SQL", "SSRS", "GemBox.Spreadsheet"]
+  tags: [full, dotnet, web, backend, reporting, integration, fullstack]

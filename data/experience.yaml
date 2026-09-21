@@ -1,214 +1,109 @@
-- id: atb_retail_it
-  company: "АТБ / АТБ-МАРКЕТ / АТБ ЕНЕРГО"
-  title: "Ведущий программист прикладной / ASP.NET MVC разработчик"
+- id: freelance-ai
+  company: {uk: "Фриланс і власні проєкти", en: "Freelance and personal projects"}
+  company_note: {uk: "Python, ML та фулстек-розробка", en: "Python, ML and full stack work"}
+  title: {uk: "AI / Python та full stack розробник", en: "AI / Python and Full Stack Developer"}
+  start: "2026-03"
+  end: "present"
+  city: {uk: "Дніпро · віддалено", en: "Dnipro · remote"}
+  tags: [full, ai, python, data, web, frontend, backend, freelance, fullstack, integration, quality, architecture]
+  bullets:
+    uk:
+      - "Голосовий пайплайн реального часу: faster-whisper на CUDA, діаризація pyannote, VAD, потоковий захват WASAPI — 55 модулів, 15 500 рядків Python."
+      - "Для нього ж — набір регресійних замірів: RTF, затримка під навантаженням, стійкість до шуму, межі якості; рішення приймаю за цифрами, а не на слух."
+      - "Парсер нерухомості на Python: SQLAlchemy 2 і Alembic поверх PostgreSQL, Playwright та selectolax, CLI на Typer, pytest і ruff."
+      - "Конвеєр збору оголошень із шести джерел із геокодуванням, дедублікацією і публікацією каталогу через GitHub Actions."
+      - "Аналізатор legacy-коду: Python розбирає .dfm і .pas та звіряє виклики процедур, Next.js показує карту системи з анотаціями."
+      - "Клієнтські проєкти: NestJS з Prisma і PostgreSQL, Next.js 16 з React 19, мобільний застосунок на Expo з картами MapLibre."
+      - "Щоденна робота з ІІ-агентами: MCP-сервери, власні субагенти та хуки, свій CDP-інспектор браузера як інструмент для агентів."
+    en:
+      - "A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python."
+      - "And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions."
+      - "A real-estate parser in Python: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright and selectolax, a Typer CLI, pytest and ruff."
+      - "A listings pipeline over six sources with geocoding, deduplication and catalog publishing through GitHub Actions."
+      - "A legacy-code analyzer: Python parses .dfm and .pas files and diffs stored-procedure calls, Next.js renders the system map with annotations."
+      - "Client work: NestJS with Prisma and PostgreSQL, Next.js 16 with React 19, a mobile app on Expo with MapLibre maps."
+      - "Daily work with AI agents: MCP servers, custom subagents and hooks, and my own CDP browser inspector as agent tooling."
+- id: atb
+  company: {uk: "АТБ-Маркет", en: "ATB-Market"}
+  company_note: {uk: "найбільша продуктова мережа України", en: "Ukraine's largest grocery retail network"}
+  title: {uk: "Провідний прикладний програміст", en: "Lead Application Programmer"}
   start: "2016-06"
-  end: "2024-03"
-  city: "Дніпро"
-  tags:
-    - full
-    - delphi
-    - dotnet
-    - web
-    - backend
-    - retail
-    - enterprise
-    - internal-systems
-    - warehouse
-    - authentication
-    - authorization
-    - access-management
-    - reporting
-    - integration
-    - signalr
-    - sql
-    - legacy
-    - modernization
-    - architecture
-  stack:
-    - "Delphi 6"
-    - "Delphi 12/13"
-    - "C#"
-    - "ASP.NET MVC"
-    - "ASP.NET Core"
-    - "REST API"
-    - "SignalR"
-    - "WCF"
-    - "Entity Framework"
-    - "MS SQL"
-    - "PostgreSQL"
-    - "Oracle"
-    - "Firebird"
-    - "OAuth2"
-    - "ADFS"
-    - "IIS"
-    - "xUnit"
-    - "NSubstitute"
-    - "Swagger"
-    - "Kendo UI"
+  end: "present"
+  city: {uk: "Дніпро", en: "Dnipro"}
+  tags: [full, dotnet, delphi, web, backend, retail, enterprise, internal-systems, warehouse, sql, authentication, authorization, access-management, reporting, signalr, integration, messaging, architecture, legacy, modernization, desktop, quality, fullstack]
   bullets:
-    - "Сопровождение клиентской части системы складского учёта на Delphi 6."
-    - "С 2018 года параллельно разработка внутренних ASP.NET MVC решений."
-    - "Вёл проекты: UAM, Журналы магазина, Вторсырьё, смена паролей магазина."
-    - "Модернизация Delphi legacy-приложения: переход от Delphi 6 к Delphi 12/13."
-    - "Работа с доступом, аутентификацией, аудитом, real-time уведомлениями и интеграциями."
-  achievements:
-    - "Система доступа и аутентификации для 2000+ пользователей."
-    - "Переход legacy-системы к более модульной архитектуре."
-    - "Внутренние web-системы для retail и складской инфраструктуры."
-
-- id: sms_messenger
-  company: "АТБ / внутренний проект"
-  title: "Архитектор / разработчик SMS messenger"
-  start: "2020-01"
-  end: "2021-01"
-  city: "Дніпро"
-  tags:
-    - full
-    - dotnet
-    - web
-    - backend
-    - enterprise
-    - integration
-    - messaging
-    - architecture
-    - sql
-  stack:
-    - "ASP.NET MVC"
-    - "Web API"
-    - "MS SQL"
-    - "GSM API"
-    - "SMPP"
-  bullets:
-    - "Разработка приложения и его архитектуры для отправки SMS."
-    - "Интеграция через GSM API Inteleb и SMPP."
-    - "Веб-архитектура на .NET MVC / Web API."
-  achievements:
-    - "Проектирование собственной архитектуры уведомлений."
-
-- id: freelance_dev
-  company: "Фриланс / частная практика"
-  title: "Фриланс-разработчик"
+    uk:
+      - "Відповідаю за клієнтську частину торгової системи мережі: 955 модулів, 828 форм, MS SQL — документи постачання, ціни, фіскальні накладні."
+      - "З 2018 паралельно будую внутрішні сервіси на ASP.NET Core і Angular: доступи, аудит, звітність, інтеграції — 33 системи мережі містять мій код."
+      - "UAM: система керування доступом для 2000+ користувачів на OpenID Connect, ADFS і Kerberos."
+      - "Інтеграції мережі: EDI та ЕДО, M.E.Doc, Oracle EBS, 1С, Kafka, BizTalk, SSIS та SSRS."
+      - "Фіскальні зміни наскрізь по системах: еАкциз і АЕД, УКТЗЕД, митні спрощення, ставки ПДВ — у працюючій мережі."
+      - "Веду міграцію клієнта з Delphi 6 на Delphi 12/13 з власним інструментом звіряння форм і мапінгу БД."
+      - "Інженерна практика: тести на xUnit і NSubstitute, SonarQube та Jenkins, Serilog, Docker, приватний NuGet."
+    en:
+      - "Own the client side of the network's trading system: 955 units, 828 forms, MS SQL, covering supply documents, pricing and fiscal invoices."
+      - "Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code."
+      - "UAM: access management for 2,000+ users on OpenID Connect, ADFS and Kerberos."
+      - "Network integrations: EDI and e-document flow, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, SSIS and SSRS."
+      - "Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network."
+      - "Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house form and DB-mapping diff tool."
+      - "Engineering practice: xUnit and NSubstitute tests, SonarQube and Jenkins, Serilog, Docker, a private NuGet feed."
+- id: freelance
+  company: {uk: "Фриланс і приватна практика", en: "Freelance and private practice"}
+  title: {uk: "Фулстек-розробник", en: "Full Stack Developer"}
   start: "2015-07"
   end: "2016-07"
-  city: "Кривий Ріг"
-  tags:
-    - full
-    - web
-    - java
-    - php
-    - ecommerce
-    - freelance
-  stack:
-    - "Java"
-    - "Firebird"
-    - "Swing"
-    - "JasperReports"
-    - "PHP"
-    - "WordPress"
-    - "WooCommerce"
-    - "OpenCart"
-    - "JavaScript"
-    - "jQuery"
+  city: {uk: "Кривий Ріг", en: "Kryvyi Rih"}
+  tags: [full, web, java, php, ecommerce, frontend, fullstack]
   bullets:
-    - "Разработка автоматизированной системы автосалона."
-    - "Настройка интернет-магазинов на WordPress/WooCommerce и OpenCart."
-    - "Создание собственного плагина WordPress."
-
-- id: teaching_courses
-  company: "Курсы современных профессий / частная практика"
-  title: "Преподаватель программирования"
+    uk:
+      - "Автоматизована система автосалону на Java і Firebird: облік автомобілів, продажів і звітність."
+      - "Інтернет-магазини на WordPress / WooCommerce та OpenCart, власний плагін для WordPress."
+    en:
+      - "An automated car dealership system on Java and Firebird: vehicles, sales and reporting."
+      - "Online stores on WordPress / WooCommerce and OpenCart, plus a custom WordPress plugin."
+- id: teaching
+  company: {uk: "Курси сучасних професій", en: "Modern Professions Courses"}
+  title: {uk: "Викладач програмування", en: "Programming Instructor"}
   start: "2015-01"
   end: "2016-01"
-  city: "Кривий Ріг"
-  tags:
-    - full
-    - teaching
-    - mentoring
-  stack:
-    - "C++"
-    - "Java"
-    - "PHP"
-    - "SQL"
-    - "MySQL"
-    - "MSSQL"
-    - "Firebird"
+  city: {uk: "Кривий Ріг", en: "Kryvyi Rih"}
+  tags: [full, teaching, mentoring, java, sql]
   bullets:
-    - "Обучение начинающих ООП, Java Core, Hibernate и SQL."
-    - "Подготовка и публикация учебных материалов."
-
-- id: kjrk_engineer_programmer
-  company: "Криворожский Железорудный Комбинат"
-  title: "Инженер-программист"
+    uk:
+      - "Курс для початківців: ООП, Java Core, Hibernate, SQL — від перших програм до роботи з базою."
+      - "Підготував навчальні матеріали та практикуми, вів групи з нуля до перших проєктів."
+    en:
+      - "A beginners' course: OOP, Java Core, Hibernate, SQL, from first programs to working with a database."
+      - "Wrote the course materials and labs, and took groups from zero to their first projects."
+- id: kjrk
+  company: {uk: "Криворізький залізорудний комбінат", en: "Kryvyi Rih Iron Ore Combine"}
+  company_note: {uk: "підземний видобуток руди", en: "underground ore mining"}
+  title: {uk: "Інженер-програміст", en: "Engineer Programmer"}
   start: "2013-06"
   end: "2016-06"
-  city: "Кривий Ріг"
-  tags:
-    - full
-    - delphi
-    - desktop
-    - enterprise
-    - industrial
-    - mining
-    - firebird
-    - sql
-    - reporting
-    - synchronization
-  stack:
-    - "Delphi 7"
-    - "Delphi XE4"
-    - "Firebird"
-    - "SQL"
-    - "PSQL"
-    - "FastReport"
-    - "TXLSExport"
-    - "Indy"
-    - "RxLib"
-    - "XML"
+  city: {uk: "Кривий Ріг", en: "Kryvyi Rih"}
+  tags: [full, delphi, desktop, enterprise, industrial, mining, firebird, sql, reporting, synchronization]
   bullets:
-    - "Разработка и сопровождение ПО для добычи и отгрузки руды."
-    - "Автоматизация сменной выдачи расходных материалов."
-    - "Поддержка систем подготовки производства и бюджетных процессов."
-    - "Синхронизация таблиц Firebird."
-  achievements:
-    - "Разработка нескольких production-critical систем для промышленного предприятия."
-
-- id: ossystems
-  company: "ОССистем"
-  title: "Программист"
+    uk:
+      - "Комплекс обліку видобутку та відвантаження руди — розробка й супровід у виробничому режимі."
+      - "Автоматизація змінної видачі витратних матеріалів і харчування за шкідливість."
+      - "Супровід систем підготовки виробництва та бюджетних процесів; синхронізація таблиць Firebird."
+    en:
+      - "A system for ore extraction and shipment accounting, developed and maintained in production."
+      - "Automated per-shift distribution of consumables and hazard-pay meals."
+      - "Maintained production-preparation and budgeting systems; implemented Firebird table synchronization."
+- id: ossystem
+  company: {uk: "ОССистем", en: "OSSystem"}
+  title: {uk: "Програміст", en: "Developer"}
   start: "2012-11"
   end: "2013-04"
-  city: "Одеса"
-  tags:
-    - full
-    - delphi
-    - enterprise
-    - oracle
-    - orm
-    - architecture
-    - reporting
-    - logistics
-    - insurance
-  stack:
-    - "Delphi Script"
-    - "Oracle"
-    - "ORM"
-    - "XL Report"
+  city: {uk: "Одеса", en: "Odesa"}
+  tags: [full, delphi, desktop, enterprise, insurance, oracle, sql, reporting]
   bullets:
-    - "Разработка для страховой компании на Master INSURANCE."
-    - "Работа с трёхзвенной архитектурой и ORM на Oracle."
-    - "Сопровождение системы учёта автотранспорта и контейнеров."
-
-- id: non_it_history
-  company: "Дополнительная не-IT карьера"
-  title: "Инженерные, торговые и производственные роли"
-  start: "1998-01"
-  end: "2012-10"
-  city: "Кривий Ріг"
-  tags:
-    - full
-    - history
-  stack: []
-  bullets:
-    - "Горный инженер подземных разработок."
-    - "Работа в торговле и производственных ролях."
-    - "Дополнительный жизненный и управленческий опыт вне IT."
+    uk:
+      - "Розробка під систему автоматизації страхування Master INSURANCE: трирівнева архітектура з ORM на Oracle, звіти на XL Report."
+      - "Супровід «Експо» — обліку руху автотранспорту і контейнерів територією портів."
+    en:
+      - "Development on Master INSURANCE, an insurance automation system: three-tier architecture with ORM over Oracle, reports in XL Report."
+      - "Maintained Expo, a system tracking vehicle and container movement across port territories."
