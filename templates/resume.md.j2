@@ -13,20 +13,15 @@
 
 ## {{ s.labels.details }}
 {% for e in s.jobs %}
-### {{ e.title }} — {{ e.company }}
-{{ e.period }} · {{ e.city }}
+### {{ e.title }}, {{ e.company }}, {{ e.city }}
+{{ e.period }}
 {% for b in e.bullets %}
 - {{ b }}
 {%- endfor %}
 {% endfor %}
 {%- if s.earlier %}
-{{ s.earlier }}
+{{ s.labels.earlier }}: {{ s.earlier }}
 {%- endif %}
-
-## {{ s.labels.projects }}
-{% for p in s.projects %}
-- **{{ p.name }}** ({{ p.period }}) — {{ p.description }}{% if p.stack %} `{{ p.stack | join('` `') }}`{% endif %}
-{%- endfor %}
 
 ## {{ s.labels.education }}
 {% for line in s.education %}

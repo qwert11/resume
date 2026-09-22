@@ -1,7 +1,7 @@
 """Build the one-page resume.
 
 Data comes from github.com/qwert11/resume2 (see fetch_source.py); `onepager.yaml`
-decides what fits on the single page. Output: output/site/index.html plus
+decides what fits on the single A4 page. Output: output/site/index.html plus
 resume.pdf / .docx / .md in English and Ukrainian.
 """
 from pathlib import Path
@@ -36,6 +36,14 @@ FONT_CANDIDATES = [
 ]
 _fonts = {'regular': 'Helvetica', 'bold': 'Helvetica-Bold'}
 
+LABELS = {
+    'contacts': {'uk': 'Контакти', 'en': 'Contact'},
+    'stack': {'uk': 'Ключові навички', 'en': 'Key skills'},
+    'education': {'uk': 'Освіта', 'en': 'Education'},
+    'earlier': {'uk': 'Раніше', 'en': 'Earlier'},
+    'full_resume': {'uk': 'Повне резюме', 'en': 'Full resume'},
+}
+
 
 def register_fonts():
     for reg_name, reg_path, bold_name, bold_path in FONT_CANDIDATES:
@@ -63,32 +71,31 @@ def norm(value):
     return {'uk': value or '', 'en': value or ''}
 
 
-def pick(items, ids, key='id'):
-    """Select items by id, in the order the ids are listed."""
-    index = {x[key]: x for x in items}
-    return [index[i] for i in ids if i in index]
-
-
-def rest(items, ids, key='id'):
-    return [x for x in items if x[key] not in ids]
-
-
 def collect(cfg):
     master = load_yaml(DATA / 'master.yaml')['profile']
-    experience = load_yaml(DATA / 'experience.yaml')
-    projects = load_yaml(DATA / 'projects.yaml')
-    groups = load_yaml(DATA / 'skills.yaml')['groups']
+    experience = {e['id']: e for e in load_yaml(DATA / 'experience.yaml')}
     education = load_yaml(DATA / 'education.yaml')['education']
     languages = load_yaml(DATA / 'languages.yaml')['languages']
 
     metrics = [m for m in master['metrics'] if m['value'] in cfg['metrics']][:cfg['max_metrics']]
-    skill_groups = [
-        {'id': g['id'], 'label': norm(g['label']),
-         'items': [norm(s['name']) for s in g['items'][:cfg['max_skills']]]}
-        for g in pick(groups, cfg['skill_groups'])
-    ]
-    jobs = pick(experience, cfg['jobs'])
-    earlier = rest(experience, cfg['jobs'])
+
+    # Positions shown in full, with the bullets picked as milestones (by index in experience.yaml).
+    jobs, shown = [], set()
+    for spec in cfg['jobs']:
+        e = experience.get(spec['id'])
+        if not e:
+            print(f"warning: job '{spec['id']}' not found in experience.yaml")
+            continue
+        idx = spec.get('bullets') or list(range(len(e['bullets']['en'])))
+        picked = dict(e, bullets={
+            lang: [e['bullets'][lang][i] for i in idx if i < len(e['bullets'][lang])]
+            for lang in LANGS if lang in e['bullets']
+        })
+        jobs.append(picked)
+        shown.add(spec['id'])
+    earlier = [e for e in experience.values() if e['id'] not in shown]
+
+    skill_groups = [{'label': norm(g['label']), 'items': [norm(s) for s in g['items']]} for g in cfg['skills']]
 
     return {
         'profile': master,
@@ -98,42 +105,23 @@ def collect(cfg):
         'skill_groups': skill_groups,
         'jobs': jobs,
         'earlier': earlier,
-        'projects': pick(projects, cfg['projects']),
-        'project_sentences': cfg.get('project_sentences', 0),
-        'education': education,
+        'education': education[:cfg.get('max_education') or len(education)],
         'languages': languages,
-        'max_bullets': cfg['max_bullets'],
         'full_resume': cfg['full_resume'],
     }
 
 
-def first_sentences(text, count):
-    """Keep only the first N sentences — the page has room for one line per project."""
-    if not count:
-        return text
-    out, taken = [], 0
-    for chunk in text.replace('! ', '. ').split('. '):
-        out.append(chunk)
-        taken += 1
-        if taken >= count:
-            break
-    joined = '. '.join(out).strip()
-    if not joined.endswith('.'):
-        joined += '.'
-    return joined
-
-
-def period(item, lang, present_word):
+def period(item, present_word):
     end = present_word if item['end'] == 'present' else item['end']
     return f"{item['start']} — {end}"
 
 
 def earlier_line(items, lang, present_word):
-    """Older positions compressed into one line: company (years)."""
+    """Older positions compressed into one line: role, company (years)."""
     parts = []
-    for e in items:
+    for e in sorted(items, key=lambda x: x['start'], reverse=True):
         years = f"{e['start'][:4]}–{(present_word if e['end'] == 'present' else e['end'][:4])}"
-        parts.append(f"{t(e['company'], lang)} ({years})")
+        parts.append(f"{t(e['title'], lang)}, {t(e['company'], lang)} ({years})")
     return ' · '.join(parts)
 
 
@@ -141,6 +129,7 @@ def doc_model(b, lang):
     p = b['profile']
     present = t(p['ui']['present'], lang)
     sec = {k: t(v, lang) for k, v in p['sections'].items()}
+    sec.update({k: v[lang] for k, v in LABELS.items()})
     return {
         'name': t(p['name'], lang),
         'title': t(b['title_obj'], lang),
@@ -154,17 +143,11 @@ def doc_model(b, lang):
         'jobs': [{
             'company': t(e['company'], lang),
             'title': t(e['title'], lang),
-            'period': period(e, lang, present),
+            'period': period(e, present),
             'city': t(e['city'], lang),
-            'bullets': e['bullets'][lang if lang in e['bullets'] else 'en'][:b['max_bullets']],
+            'bullets': e['bullets'][lang if lang in e['bullets'] else 'en'],
         } for e in b['jobs']],
         'earlier': earlier_line(b['earlier'], lang, present),
-        'projects': [{
-            'name': t(pr['name'], lang),
-            'period': pr['period'],
-            'description': first_sentences(t(pr['description'], lang), b['project_sentences']),
-            'stack': pr.get('stack') or [],
-        } for pr in b['projects']],
         'education': [f"{t(e['specialty'], lang)} — {t(e['institution'], lang)} ({e['period']})"
                       for e in b['education']],
         'languages': [f"{t(l['name'], lang)} — {t(l['level'], lang)}" for l in b['languages']],
@@ -179,6 +162,9 @@ def build_docx(path, s):
     style = doc.styles['Normal']
     style.font.name = 'Calibri'
     style.font.size = Pt(10)
+    for section in doc.sections:
+        section.top_margin = section.bottom_margin = Pt(40)
+        section.left_margin = section.right_margin = Pt(46)
 
     doc.add_heading(s['name'], 0)
     par = doc.add_paragraph()
@@ -196,18 +182,12 @@ def build_docx(path, s):
     doc.add_heading(s['labels']['details'], level=1)
     for e in s['jobs']:
         par = doc.add_paragraph()
-        par.add_run(f"{e['title']} — {e['company']}").bold = True
-        doc.add_paragraph(f"{e['period']} · {e['city']}")
+        par.add_run(f"{e['title']}, {e['company']}, {e['city']}").bold = True
+        doc.add_paragraph(e['period'])
         for line in e['bullets']:
             doc.add_paragraph(line, style='List Bullet')
     if s['earlier']:
-        doc.add_paragraph(s['earlier'])
-
-    doc.add_heading(s['labels']['projects'], level=1)
-    for pr in s['projects']:
-        par = doc.add_paragraph()
-        par.add_run(f"{pr['name']} ({pr['period']}). ").bold = True
-        par.add_run(pr['description'])
+        doc.add_paragraph(f"{s['labels']['earlier']}: {s['earlier']}")
 
     doc.add_heading(s['labels']['education'], level=1)
     for line in s['education']:
@@ -217,18 +197,24 @@ def build_docx(path, s):
     for line in s['languages']:
         doc.add_paragraph(line, style='List Bullet')
 
-    doc.add_paragraph(s['full_resume'])
+    doc.add_paragraph(f"{s['labels']['full_resume']}: {s['full_resume']}")
     doc.save(path)
 
 
 def build_pdf(path, s):
+    """Same layout as the page: a tinted side column and the main column, one A4 sheet."""
     register_fonts()
     reg, bold = _fonts['regular'], _fonts['bold']
     c = canvas.Canvas(str(path), pagesize=A4)
     width, height = A4
-    left, right = 44, 44
-    avail = width - left - right
-    y = height - 46
+    side_w = 168
+    pad = 20
+    top = height - 40
+
+    INK, SOFT, MUTED, SIDE_BG, LINE = (0.05, 0.06, 0.07), (0.12, 0.14, 0.15), (0.32, 0.36, 0.35), (0.93, 0.94, 0.93), (0.75, 0.78, 0.76)
+
+    c.setFillColorRGB(*SIDE_BG)
+    c.rect(0, 0, side_w, height, stroke=0, fill=1)
 
     def wrap(text, font, size, width_limit):
         words, lines, cur = str(text).split(), [], ''
@@ -244,69 +230,93 @@ def build_pdf(path, s):
             lines.append(cur)
         return lines or ['']
 
-    def block(text, font=None, size=9.2, leading=12, indent=0, color=(0.09, 0.11, 0.12)):
-        nonlocal y
-        font = font or reg
-        c.setFillColorRGB(*color)
-        c.setFont(font, size)
-        for line in wrap(text, font, size, avail - indent):
-            if y < 48:
-                c.showPage()
-                y = height - 46
-                c.setFont(font, size)
-                c.setFillColorRGB(*color)
-            c.drawString(left + indent, y, line)
-            y -= leading
+    class Column:
+        def __init__(self, x, w, y):
+            self.x, self.w, self.y = x, w, y
 
-    def rule(label):
-        nonlocal y
-        y -= 7
-        c.setFillColorRGB(0.09, 0.11, 0.12)
-        c.setFont(bold, 9.5)
-        c.drawString(left, y, label.upper())
-        y -= 4
-        c.setStrokeColorRGB(0.72, 0.75, 0.73)
-        c.setLineWidth(0.6)
-        c.line(left, y, width - right, y)
-        y -= 11
+        def block(self, text, font=None, size=8.6, leading=11, indent=0, color=INK, bullet=None):
+            font = font or reg
+            c.setFillColorRGB(*color)
+            c.setFont(font, size)
+            lines = wrap(text, font, size, self.w - indent)
+            for i, line in enumerate(lines):
+                if bullet is not None and i == 0:
+                    c.drawString(self.x + indent - bullet[1], self.y, bullet[0])
+                c.drawString(self.x + indent, self.y, line)
+                self.y -= leading
 
-    block(s['name'], bold, 20, 24)
-    block(s['title'], reg, 11.5, 15, color=(0.25, 0.29, 0.28))
-    block(' · '.join(s['contacts'] + [s['location']]), reg, 9, 12, color=(0.32, 0.36, 0.35))
-    y -= 3
-    block(s['summary'], reg, 9.4, 12.4, color=(0.15, 0.17, 0.18))
-    block(' · '.join(s['metrics']), reg, 8.6, 11.5, color=(0.32, 0.36, 0.35))
+        def rule(self, label, color=INK, line_color=LINE):
+            self.y -= 6
+            c.setFillColorRGB(*color)
+            c.setFont(bold, 7.4)
+            c.drawString(self.x, self.y, label.upper())
+            self.y -= 4
+            c.setStrokeColorRGB(*line_color)
+            c.setLineWidth(0.6)
+            c.line(self.x, self.y, self.x + self.w, self.y)
+            self.y -= 10
 
-    rule(s['labels']['stack'])
+        def gap(self, n):
+            self.y -= n
+
+    side = Column(pad, side_w - 2 * pad, top)
+    main = Column(side_w + 26, width - side_w - 26 - 30, top)
+
+    # ---- side column
+    side.rule(s['labels']['contacts'], color=MUTED)
+    for line in s['contacts'] + [s['location']]:
+        side.block(line, reg, 8.2, 11, color=SOFT)
+    side.gap(6)
+    side.rule(s['labels']['stack'], color=MUTED)
     for label, items in s['skills']:
-        block(f"{label}: {', '.join(items)}", reg, 9, 11.6)
-
-    rule(s['labels']['details'])
-    for e in s['jobs']:
-        block(f"{e['title']} — {e['company']}", bold, 9.6, 12.4)
-        block(f"{e['period']} · {e['city']}", reg, 8.6, 11.4, color=(0.36, 0.4, 0.39))
-        for line in e['bullets']:
-            block('• ' + line, reg, 9, 11.6, indent=9, color=(0.18, 0.2, 0.21))
-        y -= 2
-    if s['earlier']:
-        block(s['earlier'], reg, 8.6, 11.4, color=(0.36, 0.4, 0.39))
-
-    rule(s['labels']['projects'])
-    for pr in s['projects']:
-        block(f"{pr['name']} ({pr['period']}). {pr['description']}", reg, 9, 11.6)
-        if pr['stack']:
-            block(', '.join(pr['stack']), reg, 8.4, 11, indent=9, color=(0.4, 0.44, 0.43))
-
-    rule(s['labels']['education'])
-    for line in s['education']:
-        block('• ' + line, reg, 9, 11.6)
-
-    rule(s['labels']['languages'])
+        side.block(label.upper(), bold, 6.8, 9.4, color=MUTED)
+        side.block(' · '.join(items), reg, 8.2, 10.8, color=SOFT)
+        side.gap(3.5)
+    side.gap(4)
+    side.rule(s['labels']['languages'], color=MUTED)
     for line in s['languages']:
-        block('• ' + line, reg, 9, 11.6)
+        side.block(line, reg, 8.2, 10.8, color=SOFT)
+    side.gap(8)
+    side.rule(s['labels']['education'], color=MUTED)
+    for line in s['education']:
+        side.block(line, reg, 8.2, 10.8, color=SOFT)
+        side.gap(3)
 
-    y -= 4
-    block(s['full_resume'], reg, 8.4, 11, color=(0.4, 0.44, 0.43))
+    # ---- main column
+    main.block(s['name'], bold, 22, 26)
+    main.block(s['title'], reg, 10.6, 14.5, color=MUTED)
+    main.gap(5)
+    main.block(s['summary'], reg, 9.2, 12.4, color=SOFT)
+    main.gap(4)
+    c.setStrokeColorRGB(*LINE)
+    c.line(main.x, main.y, main.x + main.w, main.y)
+    main.gap(12)
+    for m in s['metrics']:
+        main.block(m, reg, 8.4, 11.2, color=MUTED)
+
+    main.rule(s['labels']['details'], color=MUTED)
+    for e in s['jobs']:
+        main.block(e['period'], reg, 7.8, 10.6, color=MUTED)
+        main.block(f"{e['title']}, {e['company']}, {e['city']}", bold, 9.6, 12.8)
+        main.gap(2)
+        for line in e['bullets']:
+            main.block(line, reg, 8.9, 11.6, indent=9, color=SOFT, bullet=('–', 9))
+        main.gap(7)
+    if s['earlier']:
+        c.setStrokeColorRGB(*LINE)
+        c.setDash(1, 2)
+        c.line(main.x, main.y + 3, main.x + main.w, main.y + 3)
+        c.setDash()
+        main.gap(8)
+        main.block(f"{s['labels']['earlier']}: {s['earlier']}", reg, 8.2, 11, color=MUTED)
+
+    c.setFillColorRGB(*MUTED)
+    c.setFont(reg, 7.4)
+    c.drawString(main.x, 30, f"{s['labels']['full_resume']}: {s['full_resume']}")
+    if main.y < 44:
+        print(f'warning: PDF main column overflows by {44 - main.y:.0f}pt')
+    if side.y < 44:
+        print(f'warning: PDF side column overflows by {44 - side.y:.0f}pt')
     c.save()
 
 
@@ -353,18 +363,15 @@ def build(skip_fetch=False):
             'city': norm(e['city']),
             'start': e['start'],
             'end': e['end'],
-            'bullets_en': e['bullets']['en'][:b['max_bullets']],
-            'bullets_uk': e['bullets']['uk'][:b['max_bullets']],
+            'bullets_en': e['bullets']['en'],
+            'bullets_uk': e['bullets'].get('uk') or e['bullets']['en'],
         } for e in b['jobs']],
         earlier=norm({'en': en['earlier'], 'uk': uk['earlier']}),
-        projects=[{
-            'name': norm(pr['name']),
-            'period': pr['period'],
-            'description': norm({'uk': first_sentences(t(pr['description'], 'uk'), b['project_sentences']),
-                                 'en': first_sentences(t(pr['description'], 'en'), b['project_sentences'])}),
-            'stack': pr.get('stack') or [],
-        } for pr in b['projects']],
-        education=[{'uk': u, 'en': e} for u, e in zip(uk['education'], en['education'])],
+        education=[{
+            'specialty': norm(e['specialty']),
+            'institution': norm(e['institution']),
+            'period': e['period'],
+        } for e in b['education']],
         languages=[{'uk': u, 'en': e} for u, e in zip(uk['languages'], en['languages'])],
         full_resume=b['full_resume'],
         build_date=date.today().isoformat(),

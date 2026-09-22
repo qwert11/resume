@@ -3,6 +3,9 @@
   var data = window.RESUME_DATA || {};
 
   function detect() {
+    var q = null;
+    try { q = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+    if (q === 'uk' || q === 'en') return q;
     var tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase();
     var nav = (navigator.language || '').toLowerCase();
     if (tz.indexOf('kyiv') >= 0 || tz.indexOf('kiev') >= 0 || nav.indexOf('uk') === 0) return 'uk';
@@ -27,8 +30,8 @@
     });
   }
 
-  function apply(lang) {
-    try { localStorage.setItem(KEY, lang); } catch (e) {}
+  function apply(lang, remember) {
+    if (remember) { try { localStorage.setItem(KEY, lang); } catch (e) {} }
     document.querySelectorAll('[data-lang]').forEach(function (b) {
       b.classList.toggle('active', b.dataset.lang === lang);
     });
@@ -47,11 +50,12 @@
     setText('[data-i18n-btn-word]', tr(ui.word, lang));
     setText('[data-i18n-btn-markdown]', tr(ui.markdown, lang));
     setText('[data-i18n-present]', tr(ui.present, lang));
+    setText('[data-i18n-earlier]', lang === 'uk' ? 'Раніше' : 'Earlier');
 
-    setText('[data-i18n-section-stack]', tr(sec.stack, lang));
+    setText('[data-i18n-section-contacts]', lang === 'uk' ? 'Контакти' : 'Contact');
+    setText('[data-i18n-section-stack]', lang === 'uk' ? 'Ключові навички' : 'Key skills');
     setText('[data-i18n-section-details]', tr(sec.details, lang));
-    setText('[data-i18n-section-projects]', tr(sec.projects, lang));
-    setText('[data-i18n-section-education]', tr(sec.education, lang));
+    setText('[data-i18n-section-education]', lang === 'uk' ? 'Освіта' : 'Education');
     setText('[data-i18n-section-languages]', tr(sec.languages, lang));
     setText('[data-i18n-full-link]', lang === 'uk' ? 'Повне резюме: qwert11.github.io/resume2' : 'Full resume: qwert11.github.io/resume2');
 
@@ -65,10 +69,12 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('[data-lang]').forEach(function (b) {
-      b.addEventListener('click', function () { apply(b.dataset.lang); });
+      b.addEventListener('click', function () { apply(b.dataset.lang, true); });
     });
+    var forced = null;
+    try { forced = new URLSearchParams(location.search).get('lang'); } catch (e) {}
     var saved = null;
     try { saved = localStorage.getItem(KEY); } catch (e) {}
-    apply(saved || detect());
+    apply((forced === 'uk' || forced === 'en') ? forced : (saved || detect()), false);
   });
 })();
