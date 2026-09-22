@@ -106,7 +106,7 @@
         {%- for e in jobs %}
         <article class="job">
           <p class="when">{{ e.start }} — {% if e.end == 'present' %}<span data-i18n-present></span>{% else %}{{ e.end }}{% endif %}</p>
-          <h3><span data-uk="{{ e.title.uk }}" data-en="{{ e.title.en }}">{{ e.title.en }}</span>, <span data-uk="{{ e.company.uk }}" data-en="{{ e.company.en }}">{{ e.company.en }}</span>, <span class="city" data-uk="{{ e.city.uk }}" data-en="{{ e.city.en }}">{{ e.city.en }}</span></h3>
+          <h3><span data-uk="{{ e.title.uk }}" data-en="{{ e.title.en }}">{{ e.title.en }}</span>, <span data-uk="{{ e.company.uk }}" data-en="{{ e.company.en }}">{{ e.company.en }}</span>{% if e.note.en %} <span class="note" data-uk="({{ e.note.uk }})" data-en="({{ e.note.en }})">({{ e.note.en }})</span>{% endif %}, <span class="city" data-uk="{{ e.city.uk }}" data-en="{{ e.city.en }}">{{ e.city.en }}</span></h3>
           <ul class="points">
             {%- for b in e.bullets_en %}
             <li data-uk="{{ e.bullets_uk[loop.index0] }}" data-en="{{ b }}">{{ b }}</li>

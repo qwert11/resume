@@ -8,12 +8,10 @@ Ten years of production engineering plus a personal track in Python and ML. Buil
 
 ## Key skills
 
-- **Python:** Python 3.11, FastAPI, SQLAlchemy 2, Alembic, Pydantic, Typer, pytest
-- **Speech and ML:** faster-whisper (CUDA), pyannote.audio, VAD, Speaker diarization, PyTorch / GPU, WASAPI
-- **Data:** PostgreSQL, Playwright, selectolax, NumPy
-- **AI agents:** Claude Code, MCP servers, Subagents and hooks, Agent tooling (CDP)
-- **Web:** Next.js 16, React 19, NestJS, TypeScript
-- **Production background:** C#, .NET 7, MS SQL Server, Delphi 12
+- **Python:** Python 3.11, FastAPI, SQLAlchemy 2, pytest
+- **Speech and ML:** faster-whisper (CUDA), pyannote.audio, VAD, PyTorch / GPU
+- **Data:** PostgreSQL, Playwright
+- **AI agents:** Claude Code, MCP servers
 
 ## Experience
 
@@ -22,16 +20,13 @@ Ten years of production engineering plus a personal track in Python and ML. Buil
 
 - A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python.
 - And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions.
-- A real-estate parser in Python: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright and selectolax, a Typer CLI, pytest and ruff.
 - A listings pipeline over six sources with geocoding, deduplication and catalog publishing through GitHub Actions.
-- A legacy-code analyzer: Python parses .dfm and .pas files and diffs stored-procedure calls, Next.js renders the system map with annotations.
 - Daily work with AI agents: MCP servers, custom subagents and hooks, and my own CDP browser inspector as agent tooling.
 
-### Lead Application Programmer, ATB-Market, Dnipro
+### Lead Application Programmer, ATB-Market (Ukraine's largest grocery retail network), Dnipro
 2016-06 — present
 
 - Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code.
-- Own the client side of the network's trading system: 955 units, 828 forms, MS SQL, covering supply documents, pricing and fiscal invoices.
 
 Earlier: Full Stack Developer, Freelance and private practice (2015–2016) · Programming Instructor, Modern Professions Courses (2015–2016) · Engineer Programmer, Kryvyi Rih Iron Ore Combine (2013–2016) · Developer, OSSystem (2012–2013)
 

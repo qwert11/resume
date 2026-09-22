@@ -88,7 +88,7 @@ def collect(cfg, full_resume):
             print(f"warning: job '{spec['id']}' not found in experience.yaml")
             continue
         idx = spec.get('bullets') or list(range(len(e['bullets']['en'])))
-        picked = dict(e, bullets={
+        picked = dict(e, company_note=e.get('company_note') if spec.get('note') else None, bullets={
             lang: [e['bullets'][lang][i] for i in idx if i < len(e['bullets'][lang])]
             for lang in LANGS if lang in e['bullets']
         })
@@ -148,6 +148,7 @@ def doc_model(b, lang):
             'title': t(e['title'], lang),
             'period': period(e, present),
             'city': t(e['city'], lang),
+            'note': t(e.get('company_note'), lang),
             'bullets': e['bullets'][lang if lang in e['bullets'] else 'en'],
         } for e in b['jobs']],
         'earlier': earlier_line(b['earlier'], lang, present),
@@ -185,7 +186,7 @@ def build_docx(path, s):
     doc.add_heading(s['labels']['details'], level=1)
     for e in s['jobs']:
         par = doc.add_paragraph()
-        par.add_run(f"{e['title']}, {e['company']}, {e['city']}").bold = True
+        par.add_run(f"{e['title']}, {e['company']}" + (f" ({e['note']})" if e['note'] else '') + f", {e['city']}").bold = True
         doc.add_paragraph(e['period'])
         for line in e['bullets']:
             doc.add_paragraph(line, style='List Bullet')
@@ -268,50 +269,50 @@ def build_pdf(path, s, profile_id='full'):
     # ---- side column
     side.rule(s['labels']['contacts'], color=MUTED)
     for line in s['contacts'] + [s['location']]:
-        side.block(line, reg, 8.2, 11, color=SOFT)
+        side.block(line, reg, 8.6, 11.6, color=SOFT)
     side.gap(6)
     side.rule(s['labels']['stack'], color=MUTED)
     for label, items in s['skills']:
-        side.block(label.upper(), bold, 6.8, 9.4, color=MUTED)
-        side.block(' · '.join(items), reg, 8.2, 10.8, color=SOFT)
-        side.gap(3.5)
+        side.block(label.upper(), bold, 7, 9.8, color=MUTED)
+        side.block(' · '.join(items), reg, 8.6, 11.4, color=SOFT)
+        side.gap(5)
     side.gap(4)
     side.rule(s['labels']['languages'], color=MUTED)
     for line in s['languages']:
-        side.block(line, reg, 8.2, 10.8, color=SOFT)
-    side.gap(8)
+        side.block(line, reg, 8.6, 11.4, color=SOFT)
+    side.gap(10)
     side.rule(s['labels']['education'], color=MUTED)
     for line in s['education']:
-        side.block(line, reg, 8.2, 10.8, color=SOFT)
-        side.gap(3)
+        side.block(line, reg, 8.6, 11.4, color=SOFT)
+        side.gap(4)
 
     # ---- main column
-    main.block(s['name'], bold, 22, 26)
-    main.block(s['title'], reg, 10.6, 14.5, color=MUTED)
-    main.gap(5)
-    main.block(s['summary'], reg, 9.2, 12.4, color=SOFT)
+    main.block(s['name'], bold, 24, 28)
+    main.block(s['title'], reg, 11, 15, color=MUTED)
+    main.gap(6)
+    main.block(s['summary'], reg, 9.8, 13.2, color=SOFT)
     main.gap(4)
     c.setStrokeColorRGB(*LINE)
     c.line(main.x, main.y, main.x + main.w, main.y)
     main.gap(12)
     for m in s['metrics']:
-        main.block(m, reg, 8.4, 11.2, color=MUTED)
+        main.block(m, reg, 8.8, 11.8, color=MUTED)
 
     main.rule(s['labels']['details'], color=MUTED)
     for e in s['jobs']:
-        main.block(e['period'], reg, 7.8, 10.6, color=MUTED)
-        main.block(f"{e['title']}, {e['company']}, {e['city']}", bold, 9.6, 12.8)
-        main.gap(2)
+        main.block(e['period'], reg, 8.2, 11.2, color=MUTED)
+        main.block(f"{e['title']}, {e['company']}" + (f" ({e['note']})" if e['note'] else '') + f", {e['city']}", bold, 10.2, 13.6)
+        main.gap(3)
         for line in e['bullets']:
-            main.block(line, reg, 8.9, 11.6, indent=9, color=SOFT, bullet=('–', 9))
-        main.gap(7)
+            main.block(line, reg, 9.6, 12.6, indent=10, color=SOFT, bullet=('–', 10))
+        main.gap(9)
     if s['earlier']:
         c.setStrokeColorRGB(*LINE)
         c.setDash(1, 2)
         c.line(main.x, main.y + 3, main.x + main.w, main.y + 3)
         c.setDash()
         main.gap(8)
-        main.block(f"{s['labels']['earlier']}: {s['earlier']}", reg, 8.2, 11, color=MUTED)
+        main.block(f"{s['labels']['earlier']}: {s['earlier']}", reg, 8.6, 11.6, color=MUTED)
 
     c.setFillColorRGB(*MUTED)
     c.setFont(reg, 7.4)
@@ -380,6 +381,7 @@ def build_profile(cfg, full_resume, profiles, env, site):
             'company': norm(e['company']),
             'title': norm(e['title']),
             'city': norm(e['city']),
+            'note': norm(e.get('company_note')),
             'start': e['start'],
             'end': e['end'],
             'bullets_en': e['bullets']['en'],

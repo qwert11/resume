@@ -8,12 +8,10 @@ Delphi engineer with ten years of production ownership of a retail trading syste
 
 ## Key skills
 
-- **Desktop:** Delphi 12, Object Pascal, VCL, DevExpress, FastReport, Indy, RX Library
-- **Data:** MS SQL Server, T-SQL, Oracle, Firebird, ADO / OLE DB
-- **Integrations:** EDI, M.E.Doc, WCF / SOAP, NativeExcel / NativeXml
-- **Alongside Delphi:** C#, ASP.NET Core, Angular 13
-- **Migration tooling:** Python, Next.js, Git
-- **Practice:** Legacy modernization, Three-tier architecture, Production ownership
+- **Desktop:** Delphi 12, Object Pascal, VCL, DevExpress, FastReport
+- **Data:** MS SQL Server, T-SQL, Oracle, Firebird
+- **Alongside Delphi:** C#, ASP.NET Core
+- **Migration tooling:** Python, Next.js
 
 ## Experience
 
@@ -22,34 +20,18 @@ Delphi engineer with ten years of production ownership of a retail trading syste
 
 - A legacy-code analyzer: Python parses .dfm and .pas files and diffs stored-procedure calls, Next.js renders the system map with annotations.
 
-### Lead Application Programmer, ATB-Market, Dnipro
+### Lead Application Programmer, ATB-Market (Ukraine's largest grocery retail network), Dnipro
 2016-06 — present
 
 - Own the client side of the network's trading system: 955 units, 828 forms, MS SQL, covering supply documents, pricing and fiscal invoices.
 - Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house form and DB-mapping diff tool.
 - Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network.
-- Network integrations: EDI and e-document flow, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, SSIS and SSRS.
-- Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code.
 
-### Engineer Programmer, Kryvyi Rih Iron Ore Combine, Kryvyi Rih
-2013-06 — 2016-06
-
-- A system for ore extraction and shipment accounting, developed and maintained in production.
-- Automated per-shift distribution of consumables and hazard-pay meals.
-- Maintained production-preparation and budgeting systems; implemented Firebird table synchronization.
-
-### Developer, OSSystem, Odesa
-2012-11 — 2013-04
-
-- Development on Master INSURANCE, an insurance automation system: three-tier architecture with ORM over Oracle, reports in XL Report.
-- Maintained Expo, a system tracking vehicle and container movement across port territories.
-
-Earlier: Full Stack Developer, Freelance and private practice (2015–2016) · Programming Instructor, Modern Professions Courses (2015–2016)
+Earlier: Full Stack Developer, Freelance and private practice (2015–2016) · Programming Instructor, Modern Professions Courses (2015–2016) · Engineer Programmer, Kryvyi Rih Iron Ore Combine (2013–2016) · Developer, OSSystem (2012–2013)
 
 ## Education
 
 - Computer Engineering · computer systems and networks — Zaporizhzhia Institute of Economics and Information Technologies (2008 — 2011)
-- Programming in Delphi — Institute of Modern Professions (2006)
 
 ## Languages
 

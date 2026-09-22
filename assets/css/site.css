@@ -170,7 +170,7 @@ h1{
 .job+.job{margin-top:18px}
 .job .when{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
 h3{margin:2px 0 0;font-size:14.5px;font-weight:600;line-height:1.35}
-h3 .city{font-weight:400;color:var(--muted)}
+h3 .city,h3 .note{font-weight:400;color:var(--muted)}
 .points{list-style:none;margin:7px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
 .points li{position:relative;padding-left:14px;font-size:13.5px;line-height:1.45;color:var(--ink-soft)}
 .points li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:1.5px;background:var(--accent)}
@@ -213,7 +213,7 @@ h3 .city{font-weight:400;color:var(--muted)}
     --ink:#000;--ink-soft:#15181a;--muted:#4a4f4d;--line:#b9bdb8;--accent:#000;--accent-soft:#eee;
   }
   html,body{background:#fff}
-  body{font-size:9.2pt;line-height:1.3}
+  body{font-size:9.8pt;line-height:1.32}
   .page{max-width:none;margin:0;padding:0}
   .tools,.profiles,.skip,.foot .muted{display:none}
   .sheet{
@@ -221,37 +221,37 @@ h3 .city{font-weight:400;color:var(--muted)}
     width:210mm;height:296.5mm;min-height:0;overflow:hidden;box-shadow:none;
     -webkit-print-color-adjust:exact;print-color-adjust:exact;
   }
-  .side{padding:13mm 6mm 10mm 7mm;background:var(--side)}
-  .body{padding:12mm 10mm 9mm 8mm}
+  .side{padding:14mm 6mm 10mm 7mm;background:var(--side)}
+  .body{padding:13mm 11mm 10mm 9mm}
   h2{font-size:7.4pt;margin-bottom:4px;padding-bottom:2px}
-  .sblock+.sblock{margin-top:15px}
-  .contacts{font-size:8.4pt;gap:5px}
+  .sblock+.sblock{margin-top:18px}
+  .contacts{font-size:8.8pt;gap:6px}
   .contacts li{padding-left:15px}
   .contacts li::before{width:9px;height:9px;top:2px;opacity:1}
   .contacts a{border-bottom:0}
-  .stack{gap:7px}
-  .stack dt{font-size:7pt}
-  .stack dd{font-size:8.4pt;line-height:1.3;gap:2px 0}
+  .stack{gap:9px}
+  .stack dt{font-size:7.2pt}
+  .stack dd{font-size:8.8pt;line-height:1.3;gap:2px 0}
   .stack dd span:not(:last-child)::after{margin:0 4px}
-  .side .plain li{font-size:8.4pt;line-height:1.3}
+  .side .plain li{font-size:8.8pt;line-height:1.3}
   .plain{gap:5px}
   .edu .when{font-size:7.2pt}
-  h1{font-size:24pt}
-  .role{font-size:10.2pt;margin-top:2px}
-  .summary{margin-top:8px;font-size:9.2pt;line-height:1.35}
-  .figures{margin-top:10px;padding-top:8px;gap:0 10px}
-  .figures b{font-size:13.5pt;line-height:1.1}
-  .figures b span{font-size:8pt}
-  .figures li>span{margin-top:2px;font-size:7.4pt;line-height:1.25}
-  .block{margin-top:12px}
-  .body h2{margin-bottom:7px}
-  .job+.job{margin-top:9px}
-  .job .when{font-size:7.6pt}
-  h3{font-size:9.6pt;margin-top:1px}
-  .points{margin-top:4px;gap:2.5px}
-  .points li{font-size:8.9pt;line-height:1.32;padding-left:10px}
-  .points li::before{top:6px;width:5px}
-  .earlier{margin-top:9px;padding-top:6px;font-size:8.2pt}
+  h1{font-size:26pt}
+  .role{font-size:10.8pt;margin-top:3px}
+  .summary{margin-top:9px;font-size:9.8pt;line-height:1.38}
+  .figures{margin-top:11px;padding-top:9px;gap:0 10px}
+  .figures b{font-size:14.5pt;line-height:1.1}
+  .figures b span{font-size:8.4pt}
+  .figures li>span{margin-top:2px;font-size:7.8pt;line-height:1.25}
+  .block{margin-top:14px}
+  .body h2{margin-bottom:8px}
+  .job+.job{margin-top:11px}
+  .job .when{font-size:8pt}
+  h3{font-size:10.2pt;margin-top:1px}
+  .points{margin-top:5px;gap:3px}
+  .points li{font-size:9.6pt;line-height:1.34;padding-left:11px}
+  .points li::before{top:7px;width:5px}
+  .earlier{margin-top:11px;padding-top:7px;font-size:8.6pt}
   .earlier .lbl{font-size:6.8pt}
   .foot{padding-top:5px;font-size:7.4pt}
   .job,.plain li,.figures li{break-inside:avoid}

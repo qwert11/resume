@@ -13,7 +13,7 @@
 
 ## {{ s.labels.details }}
 {% for e in s.jobs %}
-### {{ e.title }}, {{ e.company }}, {{ e.city }}
+### {{ e.title }}, {{ e.company }}{% if e.note %} ({{ e.note }}){% endif %}, {{ e.city }}
 {{ e.period }}
 {% for b in e.bullets %}
 - {{ b }}
