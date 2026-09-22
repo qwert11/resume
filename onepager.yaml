@@ -1,45 +1,156 @@
 # Что попадает на единственную страницу A4. Факты живут в github.com/qwert11/resume2,
 # здесь только отбор: одностраничник показывает вехи, а не историю.
-title_key: full
-summary_key: full
-
-# Позиции целиком, по порядку, и номера пунктов из experience.yaml, которые считаем вехами.
-# Остальные позиции сворачиваются в строку «Раніше».
-jobs:
-  - id: freelance-ai
-    bullets: [0, 3, 5]
-  - id: atb
-    bullets: [0, 1, 2, 3, 5, 4]
-  - id: kjrk
-    bullets: [0]
-
-# Цифры под кратким описанием.
-max_metrics: 4
-metrics: ["10", "2 000+", "33", "15 500"]
-
-# Стек в боковой колонке. Только актуальная версия каждой технологии —
-# без «.NET 7 / 6 / 5» и «Delphi 6 → 12»: история версий живёт в полном резюме.
-skills:
-  - label: {uk: "Бекенд", en: "Backend"}
-    items: ["C#", ".NET 7", "ASP.NET Core", "Web API", "EF Core 7", "SignalR"]
-  - label: {uk: "Дані", en: "Data"}
-    items: ["MS SQL Server", "T-SQL", "PostgreSQL", "Oracle"]
-  - label: {uk: "Десктоп", en: "Desktop"}
-    items: ["Delphi 12", "Object Pascal", "VCL", "DevExpress", "FastReport"]
-  - label: {uk: "Фронтенд", en: "Front end"}
-    items: ["Angular 13", "TypeScript", "Kendo UI"]
-  - label: {uk: "Доступи", en: "Access"}
-    items: ["OpenID Connect", "ADFS", "Kerberos", "Active Directory"]
-  - label: {uk: "Інтеграції", en: "Integrations"}
-    items: ["Kafka", "EDI", "M.E.Doc", "Oracle EBS", "1С"]
-  - label: {uk: "Python та ML", en: "Python and ML"}
-    items: ["Python 3.11", "FastAPI", "SQLAlchemy 2", "faster-whisper", "pyannote"]
-  - label: {uk: "Постачання", en: "Delivery"}
-    items: ["xUnit", "SonarQube", "Jenkins", "Docker", "Git"]
-  - label: {uk: "ІІ-агенти", en: "AI agents"}
-    items: ["Claude Code", "MCP"]
-
-# Образование: сколько записей показать (дипломы и сертификаты идут в порядке education.yaml).
-max_education: 2
+#
+# Профили те же, что в полном резюме: full (корень сайта), dotnet, delphi, web, ai.
+# У каждого — свой заголовок и описание (ключи из master.yaml), свои позиции с номерами
+# пунктов-вех из experience.yaml, свои цифры, свой стек и записи об образовании
+# (номера из education.yaml). Позиции, не попавшие в jobs, сворачиваются в строку «Раніше».
+#
+# В стеке только актуальная версия каждой технологии — без «.NET 7 / 6 / 5» и
+# «Delphi 6 → 12»: история версий живёт в полном резюме.
 
 full_resume: "https://qwert11.github.io/resume2/"
+
+profiles:
+  - id: full
+    route: ""
+    title_key: full
+    summary_key: full
+    jobs:
+      - {id: freelance-ai, bullets: [0, 3, 5]}
+      - {id: atb, bullets: [0, 1, 2, 3, 5, 4]}
+      - {id: kjrk, bullets: [0]}
+    metrics: ["10", "2 000+", "33", "15 500"]
+    education: [0, 1]
+    skills:
+      - label: {uk: "Бекенд", en: "Backend"}
+        items: ["C#", ".NET 7", "ASP.NET Core", "Web API", "EF Core 7", "SignalR"]
+      - label: {uk: "Дані", en: "Data"}
+        items: ["MS SQL Server", "T-SQL", "PostgreSQL", "Oracle"]
+      - label: {uk: "Десктоп", en: "Desktop"}
+        items: ["Delphi 12", "Object Pascal", "VCL", "DevExpress", "FastReport"]
+      - label: {uk: "Фронтенд", en: "Front end"}
+        items: ["Angular 13", "TypeScript", "Kendo UI"]
+      - label: {uk: "Доступи", en: "Access"}
+        items: ["OpenID Connect", "ADFS", "Kerberos", "Active Directory"]
+      - label: {uk: "Інтеграції", en: "Integrations"}
+        items: ["Kafka", "EDI", "M.E.Doc", "Oracle EBS", "1С"]
+      - label: {uk: "Python та ML", en: "Python and ML"}
+        items: ["Python 3.11", "FastAPI", "SQLAlchemy 2", "faster-whisper", "pyannote"]
+      - label: {uk: "Постачання", en: "Delivery"}
+        items: ["xUnit", "SonarQube", "Jenkins", "Docker", "Git"]
+      - label: {uk: "ІІ-агенти", en: "AI agents"}
+        items: ["Claude Code", "MCP"]
+
+  - id: dotnet
+    route: dotnet
+    title_key: dotnet
+    summary_key: dotnet
+    jobs:
+      - {id: freelance-ai, bullets: [5, 6]}
+      - {id: atb, bullets: [1, 2, 3, 4, 6, 0]}
+    metrics: ["10", "2 000+", "33", "2"]
+    education: [0, 2]
+    skills:
+      - label: {uk: "Бекенд", en: "Backend"}
+        items: ["C#", ".NET 7", "ASP.NET Core", "Web API", "SignalR", "Worker Services", "Hangfire"]
+      - label: {uk: "Дані", en: "Data"}
+        items: ["MS SQL Server", "T-SQL", "EF Core 7", "PostgreSQL", "SSIS", "SSRS"]
+      - label: {uk: "Фронтенд", en: "Front end"}
+        items: ["Angular 13", "TypeScript", "Kendo UI", "Razor"]
+      - label: {uk: "Доступи", en: "Access and security"}
+        items: ["OpenID Connect", "OAuth2", "JWT", "ADFS", "Kerberos", "Active Directory", "RBAC"]
+      - label: {uk: "Інтеграції", en: "Integrations"}
+        items: ["Kafka", "EDI", "M.E.Doc", "Oracle EBS", "1С", "BizTalk", "WCF"]
+      - label: {uk: "Якість", en: "Quality"}
+        items: ["xUnit", "NSubstitute", "SonarQube", "Jenkins", "Docker", "Serilog", "Elastic APM"]
+      - label: {uk: "Підходи", en: "Practice"}
+        items:
+          - {uk: "Модульний моноліт", en: "Modular monolith"}
+          - {uk: "Модернізація legacy", en: "Legacy modernization"}
+          - {uk: "Робота в проді 24/7", en: "Production ownership"}
+
+  - id: delphi
+    route: delphi
+    title_key: delphi
+    summary_key: delphi
+    jobs:
+      - {id: freelance-ai, bullets: [4]}
+      - {id: atb, bullets: [0, 5, 4, 3, 1]}
+      - {id: kjrk, bullets: [0, 1, 2]}
+      - {id: ossystem, bullets: [0, 1]}
+    metrics: ["10", "955", "2", "33"]
+    education: [0, 3]
+    skills:
+      - label: {uk: "Десктоп", en: "Desktop"}
+        items: ["Delphi 12", "Object Pascal", "VCL", "DevExpress", "FastReport", "Indy", "RX Library"]
+      - label: {uk: "Дані", en: "Data"}
+        items: ["MS SQL Server", "T-SQL", "Oracle", "Firebird", "ADO / OLE DB"]
+      - label: {uk: "Інтеграції", en: "Integrations"}
+        items: ["EDI", "M.E.Doc", "WCF / SOAP", "NativeExcel / NativeXml"]
+      - label: {uk: "Поряд із Delphi", en: "Alongside Delphi"}
+        items: ["C#", "ASP.NET Core", "Angular 13"]
+      - label: {uk: "Інструменти міграції", en: "Migration tooling"}
+        items: ["Python", "Next.js", "Git"]
+      - label: {uk: "Підходи", en: "Practice"}
+        items:
+          - {uk: "Модернізація legacy", en: "Legacy modernization"}
+          - {uk: "Трирівнева архітектура", en: "Three-tier architecture"}
+          - {uk: "Робота в проді 24/7", en: "Production ownership"}
+
+  - id: web
+    route: web
+    title_key: web
+    summary_key: web
+    jobs:
+      - {id: freelance-ai, bullets: [5, 4, 6]}
+      - {id: atb, bullets: [1, 2, 3, 6]}
+      - {id: freelance, bullets: [0, 1]}
+    metrics: ["10", "2 000+", "33", "27"]
+    education: [0, 2]
+    skills:
+      - label: {uk: "Бекенд", en: "Backend"}
+        items: ["C#", ".NET 7", "ASP.NET Core", "Web API", "SignalR", "NestJS", "Node.js"]
+      - label: {uk: "Фронтенд", en: "Front end"}
+        items: ["Angular 13", "TypeScript", "Kendo UI", "React 19", "Next.js 16", "Tailwind CSS"]
+      - label: {uk: "Дані", en: "Data"}
+        items: ["MS SQL Server", "EF Core 7", "PostgreSQL", "Prisma"]
+      - label: {uk: "Мобільне", en: "Mobile"}
+        items: ["Expo / React Native", "MapLibre", "TanStack Query"]
+      - label: {uk: "Доступи", en: "Access"}
+        items: ["OpenID Connect", "OAuth2", "JWT", "ADFS"]
+      - label: {uk: "Постачання", en: "Delivery"}
+        items: ["xUnit", "SonarQube", "Jenkins", "Docker", "GitHub Actions"]
+
+  - id: ai
+    route: ai
+    title_key: ai
+    summary_key: ai
+    jobs:
+      - {id: freelance-ai, bullets: [0, 1, 2, 3, 4, 6]}
+      - {id: atb, bullets: [1, 0]}
+    metrics: ["15 500", "27", "6", "10"]
+    education: [0]
+    skills:
+      - label: {uk: "Python", en: "Python"}
+        items: ["Python 3.11", "FastAPI", "SQLAlchemy 2", "Alembic", "Pydantic", "Typer", "pytest"]
+      - label: {uk: "Мова та ML", en: "Speech and ML"}
+        items:
+          - "faster-whisper (CUDA)"
+          - "pyannote.audio"
+          - "VAD"
+          - {uk: "Діаризація мовців", en: "Speaker diarization"}
+          - "PyTorch / GPU"
+          - "WASAPI"
+      - label: {uk: "Дані", en: "Data"}
+        items: ["PostgreSQL", "Playwright", "selectolax", "NumPy"]
+      - label: {uk: "ІІ-агенти", en: "AI agents"}
+        items:
+          - "Claude Code"
+          - {uk: "MCP-сервери", en: "MCP servers"}
+          - {uk: "Субагенти та хуки", en: "Subagents and hooks"}
+          - {uk: "Інструменти для агентів (CDP)", en: "Agent tooling (CDP)"}
+      - label: {uk: "Веб", en: "Web"}
+        items: ["Next.js 16", "React 19", "NestJS", "TypeScript"]
+      - label: {uk: "Промисловий фон", en: "Production background"}
+        items: ["C#", ".NET 7", "MS SQL Server", "Delphi 12"]

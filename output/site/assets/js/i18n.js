@@ -51,13 +51,20 @@
     setText('[data-i18n-btn-markdown]', tr(ui.markdown, lang));
     setText('[data-i18n-present]', tr(ui.present, lang));
     setText('[data-i18n-earlier]', lang === 'uk' ? 'Раніше' : 'Earlier');
+    setText('[data-i18n-profiles-hint]', tr(ui.profiles_hint, lang));
+    ['full', 'dotnet', 'delphi', 'web', 'ai'].forEach(function (id) {
+      setText('[data-i18n-nav-' + id + ']', tr(ui[id], lang));
+    });
 
     setText('[data-i18n-section-contacts]', lang === 'uk' ? 'Контакти' : 'Contact');
     setText('[data-i18n-section-stack]', lang === 'uk' ? 'Ключові навички' : 'Key skills');
     setText('[data-i18n-section-details]', tr(sec.details, lang));
     setText('[data-i18n-section-education]', lang === 'uk' ? 'Освіта' : 'Education');
     setText('[data-i18n-section-languages]', tr(sec.languages, lang));
-    setText('[data-i18n-full-link]', lang === 'uk' ? 'Повне резюме: qwert11.github.io/resume2' : 'Full resume: qwert11.github.io/resume2');
+    document.querySelectorAll('[data-i18n-full-link]').forEach(function (el) {
+      var short = (el.getAttribute('href') || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
+      el.textContent = (lang === 'uk' ? 'Повне резюме: ' : 'Full resume: ') + short;
+    });
 
     document.querySelectorAll('[data-uk][data-en]').forEach(function (el) {
       el.textContent = lang === 'uk' ? el.dataset.uk : el.dataset.en;

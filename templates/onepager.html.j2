@@ -8,15 +8,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="{{ prefix }}assets/css/site.css">
 </head>
-<body>
+<body data-target="{{ profile_id }}">
 <script>window.RESUME_DATA = {{ js_data | safe }};</script>
-<script src="assets/js/theme.js"></script>
+<script src="{{ prefix }}assets/js/theme.js"></script>
 
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="page">
+
+  <nav class="profiles" aria-label="Resume profiles">
+    <span class="profiles-hint" data-i18n-profiles-hint></span>
+    {%- for pr in profiles %}
+    <a href="{{ prefix }}{{ pr.route ~ '/' if pr.route else '' }}index.html" class="{% if pr.id == profile_id %}active{% endif %}" data-i18n-nav-{{ pr.id }}></a>
+    {%- endfor %}
+  </nav>
 
   <nav class="tools" aria-label="Page controls">
     <div class="seg" role="group" aria-label="Theme">
@@ -121,6 +128,6 @@
   </div>
 </div>
 
-<script src="assets/js/i18n.js"></script>
+<script src="{{ prefix }}assets/js/i18n.js"></script>
 </body>
 </html>

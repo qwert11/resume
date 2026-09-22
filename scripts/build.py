@@ -71,13 +71,14 @@ def norm(value):
     return {'uk': value or '', 'en': value or ''}
 
 
-def collect(cfg):
+def collect(cfg, full_resume):
     master = load_yaml(DATA / 'master.yaml')['profile']
     experience = {e['id']: e for e in load_yaml(DATA / 'experience.yaml')}
     education = load_yaml(DATA / 'education.yaml')['education']
     languages = load_yaml(DATA / 'languages.yaml')['languages']
 
-    metrics = [m for m in master['metrics'] if m['value'] in cfg['metrics']][:cfg['max_metrics']]
+    by_value = {m['value']: m for m in master['metrics']}
+    metrics = [by_value[v] for v in cfg['metrics'] if v in by_value][:4]
 
     # Positions shown in full, with the bullets picked as milestones (by index in experience.yaml).
     jobs, shown = [], set()
@@ -105,9 +106,11 @@ def collect(cfg):
         'skill_groups': skill_groups,
         'jobs': jobs,
         'earlier': earlier,
-        'education': education[:cfg.get('max_education') or len(education)],
+        'education': [education[i] for i in cfg.get('education', [0]) if i < len(education)],
         'languages': languages,
-        'full_resume': cfg['full_resume'],
+        'full_resume': full_resume + (cfg['route'] + '/' if cfg['route'] else ''),
+        'route': cfg['route'],
+        'id': cfg['id'],
     }
 
 
@@ -201,7 +204,7 @@ def build_docx(path, s):
     doc.save(path)
 
 
-def build_pdf(path, s):
+def build_pdf(path, s, profile_id='full'):
     """Same layout as the page: a tinted side column and the main column, one A4 sheet."""
     register_fonts()
     reg, bold = _fonts['regular'], _fonts['bold']
@@ -314,9 +317,9 @@ def build_pdf(path, s):
     c.setFont(reg, 7.4)
     c.drawString(main.x, 30, f"{s['labels']['full_resume']}: {s['full_resume']}")
     if main.y < 44:
-        print(f'warning: PDF main column overflows by {44 - main.y:.0f}pt')
+        print(f'warning: [{profile_id}] PDF main column overflows by {44 - main.y:.0f}pt')
     if side.y < 44:
-        print(f'warning: PDF side column overflows by {44 - side.y:.0f}pt')
+        print(f'warning: [{profile_id}] PDF side column overflows by {44 - side.y:.0f}pt')
     c.save()
 
 
@@ -328,8 +331,6 @@ def build(skip_fetch=False):
         fetch_source.fetch()
 
     cfg = load_yaml(ROOT / 'onepager.yaml')
-    b = collect(cfg)
-    p = b['profile']
 
     site = OUTPUT / 'site'
     if site.exists():
@@ -338,6 +339,21 @@ def build(skip_fetch=False):
     shutil.copytree(ASSETS, site / 'assets', dirs_exist_ok=True)
 
     env = Environment(loader=FileSystemLoader(str(TEMPLATES)))
+    profiles = [{'id': x['id'], 'route': x['route']} for x in cfg['profiles']]
+    for prof in cfg['profiles']:
+        build_profile(prof, cfg['full_resume'], profiles, env, site)
+
+    (site / '.nojekyll').write_text('', encoding='utf-8')
+    print(f'built {site}')
+
+
+def build_profile(cfg, full_resume, profiles, env, site):
+    b = collect(cfg, full_resume)
+    p = b['profile']
+    out = site / cfg['route'] if cfg['route'] else site
+    ensure_dir(out)
+    prefix = '../' if cfg['route'] else ''
+
     js_data = {
         'profile': p,
         'sections': p['sections'],
@@ -349,6 +365,9 @@ def build(skip_fetch=False):
     uk = doc_model(b, 'uk')
 
     html = env.get_template('onepager.html.j2').render(
+        profile_id=cfg['id'],
+        profiles=profiles,
+        prefix=prefix,
         page_title=f"{en['name']} — {en['title']}",
         name_text=en['name'],
         title_text=en['title'],
@@ -377,17 +396,15 @@ def build(skip_fetch=False):
         build_date=date.today().isoformat(),
         js_data=json.dumps(js_data, ensure_ascii=False),
     )
-    (site / 'index.html').write_text(html, encoding='utf-8')
+    (out / 'index.html').write_text(html, encoding='utf-8')
 
     for lang, model in (('en', en), ('uk', uk)):
         suffix = '' if lang == 'en' else f'.{lang}'
         md = env.get_template('resume.md.j2').render(s=model)
-        (site / f'resume{suffix}.md').write_text(md, encoding='utf-8')
-        build_docx(site / f'resume{suffix}.docx', model)
-        build_pdf(site / f'resume{suffix}.pdf', model)
-
-    (site / '.nojekyll').write_text('', encoding='utf-8')
-    print(f'built {site}')
+        (out / f'resume{suffix}.md').write_text(md, encoding='utf-8')
+        build_docx(out / f'resume{suffix}.docx', model)
+        build_pdf(out / f'resume{suffix}.pdf', model, cfg['id'])
+    print(f"  {cfg['id']}: {out.relative_to(site) if out != site else '.'}")
 
 
 def main():
