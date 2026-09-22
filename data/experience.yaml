@@ -8,7 +8,7 @@
   tags: [full, ai, python, data, web, frontend, backend, freelance, fullstack, integration, quality, architecture]
   bullets:
     uk:
-      - "Голосовий пайплайн реального часу: faster-whisper на CUDA, діаризація pyannote, VAD, потоковий захват WASAPI — 55 модулів, 15 500 рядків Python."
+      - "Голосовий пайплайн реального часу: faster-whisper на CUDA, діаризація pyannote, VAD, потоковий захват WASAPI."
       - "Для нього ж — набір регресійних замірів: RTF, затримка під навантаженням, стійкість до шуму, межі якості; рішення приймаю за цифрами, а не на слух."
       - "Парсер нерухомості на Python: SQLAlchemy 2 і Alembic поверх PostgreSQL, Playwright та selectolax, CLI на Typer, pytest і ruff."
       - "Конвеєр збору оголошень із шести джерел із геокодуванням, дедублікацією і публікацією каталогу через GitHub Actions."
@@ -16,7 +16,7 @@
       - "Клієнтські проєкти: NestJS з Prisma і PostgreSQL, Next.js 16 з React 19, мобільний застосунок на Expo з картами MapLibre."
       - "Щоденна робота з ІІ-агентами: MCP-сервери, власні субагенти та хуки, свій CDP-інспектор браузера як інструмент для агентів."
     en:
-      - "A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python."
+      - "A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture."
       - "And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions."
       - "A real-estate parser in Python: SQLAlchemy 2 and Alembic over PostgreSQL, Playwright and selectolax, a Typer CLI, pytest and ruff."
       - "A listings pipeline over six sources with geocoding, deduplication and catalog publishing through GitHub Actions."
@@ -33,20 +33,20 @@
   tags: [full, dotnet, delphi, web, backend, retail, enterprise, internal-systems, warehouse, sql, authentication, authorization, access-management, reporting, signalr, integration, messaging, architecture, legacy, modernization, desktop, quality, fullstack]
   bullets:
     uk:
-      - "Відповідаю за клієнтську частину торгової системи мережі: 955 модулів, 828 форм, MS SQL — документи постачання, ціни, фіскальні накладні."
+      - "Відповідаю за клієнтську частину торгової системи, якою щодня працюють магазини мережі: документи постачання, ціни, фіскальні накладні, MS SQL."
       - "З 2018 паралельно будую внутрішні сервіси на ASP.NET Core і Angular: доступи, аудит, звітність, інтеграції — 33 системи мережі містять мій код."
       - "UAM: система керування доступом для 2000+ користувачів на OpenID Connect, ADFS і Kerberos."
       - "Інтеграції мережі: EDI та ЕДО, M.E.Doc, Oracle EBS, 1С, Kafka, BizTalk, SSIS та SSRS."
       - "Фіскальні зміни наскрізь по системах: еАкциз і АЕД, УКТЗЕД, митні спрощення, ставки ПДВ — у працюючій мережі."
-      - "Веду міграцію клієнта з Delphi 6 на Delphi 12/13 з власним інструментом звіряння форм і мапінгу БД."
+      - "Веду міграцію клієнта з Delphi 6 на Delphi 12/13 з власним інструментом звіряння інтерфейсу і мапінгу БД між версіями."
       - "Інженерна практика: тести на xUnit і NSubstitute, SonarQube та Jenkins, Serilog, Docker, приватний NuGet."
     en:
-      - "Own the client side of the network's trading system: 955 units, 828 forms, MS SQL, covering supply documents, pricing and fiscal invoices."
+      - "Own the client side of the trading system that the network's stores run on daily: supply documents, pricing and fiscal invoices, MS SQL."
       - "Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code."
       - "UAM: access management for 2,000+ users on OpenID Connect, ADFS and Kerberos."
       - "Network integrations: EDI and e-document flow, M.E.Doc, Oracle EBS, 1C, Kafka, BizTalk, SSIS and SSRS."
       - "Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network."
-      - "Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house form and DB-mapping diff tool."
+      - "Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house tool that diffs UI and DB mappings between versions."
       - "Engineering practice: xUnit and NSubstitute tests, SonarQube and Jenkins, Serilog, Docker, a private NuGet feed."
 - id: freelance
   company: {uk: "Фриланс і приватна практика", en: "Freelance and private practice"}

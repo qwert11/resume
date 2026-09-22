@@ -24,8 +24,8 @@
   period: "2026"
   role: {uk: "Автор", en: "Author"}
   description:
-    uk: "Інструмент для розбору торгової системи перед міграцією: Python парсить .dfm і .pas, витягує виклики процедур і зв'язки форм, Next.js показує це картою з анотаціями та коментарями по вузлах."
-    en: "A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and form relations, and a Next.js app renders it as an annotated map."
+    uk: "Інструмент для розбору торгової системи перед міграцією: Python парсить .dfm і .pas, витягує виклики процедур і зв'язки екранів, Next.js показує це картою з анотаціями та коментарями по вузлах."
+    en: "A tool for mapping the trading system before migration: Python parses .dfm and .pas files, extracts stored-procedure calls and screen relations, and a Next.js app renders it as an annotated map."
   stack: ["Python", "Next.js", "TypeScript", "PostgreSQL"]
   tags: [full, ai, python, web, legacy, modernization, data, freelance]
 - id: ammobility
@@ -44,8 +44,8 @@
   period: "2024 — 2026"
   role: {uk: "Технічний лід міграції", en: "Migration lead"}
   description:
-    uk: "Переведення клієнта торгової системи (955 модулів, 828 форм) на сучасний компілятор із переробкою ядра. Написав окремий інструмент, що звіряє форми та мапінг таблиць між старою і новою версіями — міграція йде без зупинки магазинів."
-    en: "Moving the trading system client (955 units, 828 forms) to a modern compiler with a core redesign. Built a separate tool that diffs forms and table mappings between the old and new versions, so the migration runs without stopping stores."
+    uk: "Переведення клієнта торгової системи на сучасний компілятор із переробкою ядра. Написав окремий інструмент, що звіряє інтерфейс і мапінг таблиць між старою і новою версіями — міграція йде без зупинки магазинів."
+    en: "Moving the trading system client to a modern compiler with a core redesign. Built a separate tool that diffs UI and table mappings between the old and new versions, so the migration runs without stopping stores."
   stack: ["Delphi 12/13", "Object Pascal", "VCL", "MS SQL", "DevExpress", "FastReport"]
   link: {label: "github.com/qwert11/d6_d13_dbmapping_checker", href: "https://github.com/qwert11/d6_d13_dbmapping_checker"}
   tags: [full, delphi, desktop, warehouse, legacy, modernization, architecture]
@@ -75,8 +75,8 @@
   period: "2021 — 2023"
   role: {uk: "Розробник", en: "Developer"}
   description:
-    uk: "Платформа журналів та аудиту для магазинів мережі: заповнення на місцях, перевірки, звітність по регіонах. Найінтенсивніший проєкт за обсягом коду серед веб-систем."
-    en: "Journals and audit platform for the network's stores: in-store entry, inspections, regional reporting. The most code-intensive of the web systems."
+    uk: "Платформа журналів та аудиту для магазинів мережі: заповнення на місцях, перевірки, звітність по регіонах."
+    en: "Journals and audit platform for the network's stores: in-store entry, inspections, regional reporting."
   stack: ["ASP.NET Core", "Angular 13", "Kendo UI", "EF Core", "MS SQL", "SignalR"]
   tags: [full, dotnet, web, backend, reporting, retail, fullstack]
 - id: recyclables

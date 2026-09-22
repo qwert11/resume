@@ -2,9 +2,9 @@
 
 **Senior Delphi Engineer · Legacy Modernization** · xetr11@gmail.com · t.me/xetr_11 · github.com/qwert11 · Dnipro, Ukraine · remote or hybrid
 
-Delphi engineer with ten years of production ownership of a retail trading system: 955 units, 828 forms, MS SQL. Currently migrating the client from Delphi 6 to Delphi 12, with a purpose-built tool that diffs forms and database mappings between the two versions.
+Delphi engineer with ten years of production ownership of a retail trading system: the client the network's stores run on daily, MS SQL, the fiscal workflows. Currently migrating the client from Delphi 6 to Delphi 12, with a purpose-built tool that diffs UI and database mappings between the two versions.
 
-10 years — in production retail systems, 2016 to now · 955 units — and 828 forms in the trading system client · 2 stacks — Delphi and .NET in parallel, with the business running · 33 — internal systems of the network carry my code
+10 years — in production retail systems, 2016 to now · 2 stacks — Delphi and .NET in parallel, with the business running · 33 — internal systems of the network carry my code
 
 ## Key skills
 
@@ -23,8 +23,8 @@ Delphi engineer with ten years of production ownership of a retail trading syste
 ### Lead Application Programmer, ATB-Market (Ukraine's largest grocery retail network), Dnipro
 2016-06 — present
 
-- Own the client side of the network's trading system: 955 units, 828 forms, MS SQL, covering supply documents, pricing and fiscal invoices.
-- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house form and DB-mapping diff tool.
+- Own the client side of the trading system that the network's stores run on daily: supply documents, pricing and fiscal invoices, MS SQL.
+- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house tool that diffs UI and DB mappings between versions.
 - Fiscal-law changes delivered end to end: excise stamps and AED, UKTZED, customs simplifications, VAT rates, in a live retail network.
 
 Earlier: Full Stack Developer, Freelance and private practice (2015–2016) · Programming Instructor, Modern Professions Courses (2015–2016) · Engineer Programmer, Kryvyi Rih Iron Ore Combine (2013–2016) · Developer, OSSystem (2012–2013)

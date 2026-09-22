@@ -2,9 +2,9 @@
 
 **AI / Python Engineer** · xetr11@gmail.com · t.me/xetr_11 · github.com/qwert11 · Dnipro, Ukraine · remote or hybrid
 
-Ten years of production engineering plus a personal track in Python and ML. Built a real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD and streaming — 55 modules, 15,500 lines of Python, with regression measurements of latency and RTF. Alongside it: data pipelines on SQLAlchemy and Playwright, and daily work with AI agents.
+Ten years of production engineering plus a personal track in Python and ML. Built a real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD and streaming, with regression measurements of latency and RTF. Alongside it: data pipelines on SQLAlchemy and Playwright, and daily work with AI agents.
 
-15 500 lines — of Python in the speech pipeline: 55 modules, STT and diarization · 27 — repositories in 2026: freelance and personal projects · 6 sources — in the listings pipeline: OLX, LUN, Rieltor, Metrazh, Telegram, FB · 10 years — in production retail systems, 2016 to now
+27 — repositories in 2026: freelance and personal projects · 6 sources — in the listings pipeline: OLX, LUN, Rieltor, Metrazh, Telegram, FB · 10 years — in production retail systems, 2016 to now
 
 ## Key skills
 
@@ -18,7 +18,7 @@ Ten years of production engineering plus a personal track in Python and ML. Buil
 ### AI / Python and Full Stack Developer, Freelance and personal projects, Dnipro · remote
 2026-03 — present
 
-- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python.
+- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture.
 - And a regression suite for it: RTF, latency under load, noise robustness, quality ceilings — decisions come from measurements, not impressions.
 - A listings pipeline over six sources with geocoding, deduplication and catalog publishing through GitHub Actions.
 - Daily work with AI agents: MCP servers, custom subagents and hooks, and my own CDP browser inspector as agent tooling.

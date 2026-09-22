@@ -16,28 +16,36 @@
 
 <a class="skip" href="#main">Skip to content</a>
 
+<header class="topbar">
+  <div class="topbar-in">
+    <nav class="profiles" aria-label="Resume profiles">
+      <span class="profiles-hint" data-i18n-profiles-hint></span>
+      {%- for pr in profiles %}
+      <a href="{{ prefix }}{{ pr.route ~ '/' if pr.route else '' }}index.html" class="{% if pr.id == profile_id %}active{% endif %}" data-i18n-nav-{{ pr.id }}></a>
+      {%- endfor %}
+    </nav>
+    <div class="tools">
+      <button type="button" class="btn" data-theme-cycle aria-label="Theme"></button>
+      <details class="dd dd-lang">
+        <summary class="btn" data-i18n-lang-current></summary>
+        <div class="menu">
+          <button type="button" data-lang="uk"></button>
+          <button type="button" data-lang="en"></button>
+        </div>
+      </details>
+      <details class="dd dd-export">
+        <summary class="btn primary" data-i18n-export></summary>
+        <div class="menu">
+          <a href="resume.pdf" data-dl-pdf data-i18n-btn-pdf></a>
+          <a href="resume.docx" data-dl-docx data-i18n-btn-word></a>
+          <a href="resume.md" data-dl-md data-i18n-btn-markdown></a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
 <div class="page">
-
-  <nav class="profiles" aria-label="Resume profiles">
-    <span class="profiles-hint" data-i18n-profiles-hint></span>
-    {%- for pr in profiles %}
-    <a href="{{ prefix }}{{ pr.route ~ '/' if pr.route else '' }}index.html" class="{% if pr.id == profile_id %}active{% endif %}" data-i18n-nav-{{ pr.id }}></a>
-    {%- endfor %}
-  </nav>
-
-  <nav class="tools" aria-label="Page controls">
-    <div class="seg" role="group" aria-label="Theme">
-      <button type="button" data-theme-mode="auto"></button><button type="button" data-theme-mode="light"></button><button type="button" data-theme-mode="dark"></button>
-    </div>
-    <div class="seg" role="group" aria-label="Language">
-      <button type="button" data-lang="uk"></button><button type="button" data-lang="en"></button>
-    </div>
-    <div class="dl">
-      <a class="btn primary" href="resume.pdf" data-dl-pdf data-i18n-btn-pdf></a>
-      <a class="btn" href="resume.docx" data-dl-docx data-i18n-btn-word></a>
-      <a class="btn" href="resume.md" data-dl-md data-i18n-btn-markdown></a>
-    </div>
-  </nav>
 
   <div class="sheet">
 

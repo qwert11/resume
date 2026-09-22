@@ -4,7 +4,7 @@
 
 Ten years inside the core systems of one retail network: a Delphi trading platform that stores run on daily, and ASP.NET Core services that keep taking over its functions. Access control for 2,000+ users, fiscal and EDI integrations, and an ongoing Delphi 6 to Delphi 12 client migration.
 
-10 years — in production retail systems, 2016 to now · 2 000+ — users on the access system I built · 33 — internal systems of the network carry my code · 15 500 lines — of Python in the speech pipeline: 55 modules, STT and diarization
+10 years — in production retail systems, 2016 to now · 2 000+ — users on the access system I built · 33 — internal systems of the network carry my code
 
 ## Key skills
 
@@ -18,15 +18,15 @@ Ten years inside the core systems of one retail network: a Delphi trading platfo
 ### AI / Python and Full Stack Developer, Freelance and personal projects, Dnipro · remote
 2026-03 — present
 
-- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture — 55 modules, 15,500 lines of Python.
+- A real-time speech pipeline: faster-whisper on CUDA, pyannote diarization, VAD, WASAPI capture.
 
 ### Lead Application Programmer, ATB-Market (Ukraine's largest grocery retail network), Dnipro
 2016-06 — present
 
-- Own the client side of the network's trading system: 955 units, 828 forms, MS SQL, covering supply documents, pricing and fiscal invoices.
+- Own the client side of the trading system that the network's stores run on daily: supply documents, pricing and fiscal invoices, MS SQL.
 - Since 2018 also build internal services on ASP.NET Core and Angular: access, audit, reporting, integrations — 33 of the network's systems carry my code.
 - UAM: access management for 2,000+ users on OpenID Connect, ADFS and Kerberos.
-- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house form and DB-mapping diff tool.
+- Leading the client migration from Delphi 6 to Delphi 12/13 with an in-house tool that diffs UI and DB mappings between versions.
 
 Earlier: Full Stack Developer, Freelance and private practice (2015–2016) · Programming Instructor, Modern Professions Courses (2015–2016) · Engineer Programmer, Kryvyi Rih Iron Ore Combine (2013–2016) · Developer, OSSystem (2012–2013)
 

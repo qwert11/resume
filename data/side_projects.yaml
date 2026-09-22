@@ -8,7 +8,7 @@ side_projects:
     link: "https://github.com/qwert11/ML-Formula-Wiki"
     tags: [full, ai, python, web]
   - name: {uk: "M3 → M4 Mapping Checker", en: "M3 to M4 Mapping Checker"}
-    note: {uk: "звіряння форм і викликів процедур між Delphi 6 і Delphi 13", en: "diffs forms and stored-procedure calls between Delphi 6 and Delphi 13"}
+    note: {uk: "звіряння інтерфейсу і викликів процедур між Delphi 6 і Delphi 13", en: "diffs UI and stored-procedure calls between Delphi 6 and Delphi 13"}
     link: "https://github.com/qwert11/d6_d13_dbmapping_checker"
     tags: [full, ai, python, delphi, legacy]
   - name: {uk: "TeamBeacon", en: "TeamBeacon"}

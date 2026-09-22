@@ -4,8 +4,8 @@ achievements:
       en: "Built UAM, the network's in-house access management system: 2,000+ users on OpenID Connect, ADFS and Kerberos, replacing per-system manual permission handling."
     tags: [full, dotnet, web, authentication, authorization, access-management, enterprise]
   - text:
-      uk: "Веду міграцію клієнта торгової системи з Delphi 6 на Delphi 12/13 і написав інструмент, що звіряє форми та мапінг БД між версіями — щоб перехід не ламав продакшен магазинів."
-      en: "Leading the trading system client migration from Delphi 6 to Delphi 12/13, with a purpose-built tool that diffs forms and database mappings between versions so the switch does not break store operations."
+      uk: "Веду міграцію клієнта торгової системи з Delphi 6 на Delphi 12/13 і написав інструмент, що звіряє інтерфейс і мапінг БД між версіями — щоб перехід не ламав продакшен магазинів."
+      en: "Leading the trading system client migration from Delphi 6 to Delphi 12/13, with a purpose-built tool that diffs UI and database mappings between versions so the switch does not break store operations."
     tags: [full, delphi, desktop, legacy, modernization, architecture]
   - text:
       uk: "Спроєктував і побудував платформу SMS-сповіщень мережі: SMPP і GSM API, .NET Web API та MS SQL, з архітектурою під пікові розсилки."
@@ -20,8 +20,8 @@ achievements:
       en: "Built the internal web systems stores work with: journals and audit, recyclables with M.E.Doc integration, a support portal, coupons and reporting."
     tags: [full, dotnet, web, retail, reporting, warehouse, enterprise, fullstack]
   - text:
-      uk: "Побудував голосовий пайплайн реального часу на Python: faster-whisper на GPU, діаризація pyannote, VAD, потоковий захват — 55 модулів і 15 500 рядків коду."
-      en: "Built a real-time speech pipeline in Python: faster-whisper on GPU, pyannote diarization, VAD and streaming capture — 55 modules and 15,500 lines of code."
+      uk: "Побудував голосовий пайплайн реального часу на Python: faster-whisper на GPU, діаризація pyannote, VAD, потоковий захват."
+      en: "Built a real-time speech pipeline in Python: faster-whisper on GPU, pyannote diarization, VAD and streaming capture."
     tags: [ai, python, data, architecture]
   - text:
       uk: "Зробив для нього регресійні заміри якості — RTF, затримка, стійкість до шуму, межі точності — і веду рішення за цифрами, а не на слух."
